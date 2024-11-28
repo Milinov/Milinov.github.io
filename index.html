@@ -93,7 +93,7 @@
 <body>
 
     <div class="note">
-        Данный сайт может искать цены только на iPhone: <br>
+        Данный сайт может искать цены только на: <br>
         15, 15 Plus, 15 Pro, 15 Pro Max, <br>
         16, 16 Plus, 16 Pro, 16 Pro Max
     </div>
@@ -115,52 +115,56 @@
 
         // Массив моделей iPhone
         const models = [
-            'iphone 16',
-            'iphone 16 plus',
-            'iphone 16 pro',
-            'iphone 16 pro max',
-            'iphone 15',
-            'iphone 15 plus',
-            'iphone 15 pro',
-            'iphone 15 pro max'
+            '16',
+            '16 plus',
+            '16 pro',
+            '16 pro max',
+            '15',
+            '15 plus',
+            '15 pro',
+            '15 pro max'
         ];
 
         searchButton.addEventListener('click', function () {
-            const query = input.value.toLowerCase();
+            const query = input.value.toLowerCase().trim();
             results.innerHTML = '';
             loading.style.display = 'block'; // Показываем индикатор загрузки
 
             // Задержка в 0.5 секунды перед выполнением поиска
             setTimeout(() => {
                 // Проверяем, если введенный текст соответствует одной из моделей
-                if (models.some(model => query.includes(model))) {
-                    const stores = [{
+                const isIphoneIncluded = query.includes('iphone');
+                const searchQuery = isIphoneIncluded ? query : 'iphone ' + query;
+
+                if (models.some(model => searchQuery.includes(model))) {
+                    const stores = [
+                        {
                             name: 'М.Видео',
-                            url: `https://www.mvideo.ru/product-list-page?q=${encodeURIComponent(query)}`
+                            url: `https://www.mvideo.ru/product-list-page?q=${encodeURIComponent(searchQuery)}`
                         },
                         {
                             name: 'ДНС',
-                            url: `https://www.dns-shop.ru/search/?q=${encodeURIComponent(query)}`
+                            url: ` https://www.dns-shop.ru/search/?q=${encodeURIComponent(searchQuery)}`
                         },
                         {
                             name: 'Рестор',
-                            url: `https://re-store.ru/search/?q=${encodeURIComponent(query)}`
+                            url: `https://re-store.ru/search/?q=${encodeURIComponent(searchQuery)}`
                         },
                         {
                             name: 'МТС',
-                            url: `https://shop.mts.ru/search/?TYPE=products&q=${encodeURIComponent(query)}`
+                            url: `https://shop.mts.ru/search/?TYPE=products&q=${encodeURIComponent(searchQuery)}`
                         },
                         {
                             name: 'Билайн',
-                            url: `https://moskva.beeline.ru/search/?term=${encodeURIComponent(query)}`
+                            url: `https://moskva.beeline.ru/search/?term=${encodeURIComponent(searchQuery)}`
                         },
                         {
                             name: 'Мегафон',
-                            url: `https://moscow.shop.megafon.ru/search?qry=${encodeURIComponent(query)}`
+                            url: `https://moscow.shop.megafon.ru/search?qry=${encodeURIComponent(searchQuery)}`
                         },
                         {
                             name: 'Эльдорадо',
-                            url: `https://www.eldorado.ru/search/catalog.php?q=${encodeURIComponent(query)}`
+                            url: `https://www.eldorado.ru/search/catalog.php?q=${encodeURIComponent(searchQuery)}`
                         }
                     ];
 

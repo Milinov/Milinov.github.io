@@ -4,286 +4,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Поиск iPhone</title>
+    <title>Главная страница</title>
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-            font-family: Arial, sans-serif;
-            position: relative;
-            /* Для позиционирования footer */
-            margin: 0;
-            /* Убираем отступы по умолчанию */
-        }
-
-        input {
-            padding: 10px;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        button {
-            padding: 10px 15px;
-            font-size: 16px;
-            cursor: pointer;
+        /* Стили для хедера */
+        header {
             background-color: #007bff;
             color: white;
-            border: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            padding: 10px 0; /* Уменьшены отступы */
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
         }
 
-        button:hover {
-            background-color: #0056b3;
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
         }
 
-        .links {
+        nav ul li {
+            margin: 0 15px; /* Уменьшены отступы между пунктами меню */
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px; /* Уменьшен размер шрифта */
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffdd57; /* Цвет при наведении */
+        }
+
+        body {
             display: flex;
             flex-direction: column;
-            margin-top: 20px;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding-top: 60px; /* Уменьшен отступ для хедера */
+            background-color: #f8f9fa; /* Светлый фон */
         }
 
-        .store-button {
-            padding: 10px;
-            margin: 5px 0;
-            background-color: #28a745;
-            color: white;
-            border: none;
+        .container {
+            max-width: 800px; /* Максимальная ширина контейнера */
+            width: 100%; /* Ширина 100% для мобильных устройств */
+            margin: 0 auto; /* Центрирование контейнера */
+            padding: 20px; /* Отступы внутри контейнера */
+        }
+
+        h1 {
+            margin: 10px 0; /* Уменьшены отступы */
+            color: #333; /* Темный цвет заголовка */
+            text-align: center; /* Центрирование заголовка */
+        }
+
+        section {
+            margin: 10px 0; /* Уменьшены отступы между секциями */
+            padding: 15px; /* Уменьшены отступы внутри секций */
+            border: 1px solid #ccc;
             border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-
-        .store-button:hover {
-            background-color: #218838;
-        }
-
-        .note {
-            margin-bottom: 10px;
-            font-size: 14px;
-            color: #555;
-        }
-
-        .error {
-            background-color: #dc3545 !important;
-        }
-
-        .success {
-            background-color: #28a745 !important;
-        }
-
-        .loading {
-            font-size: 16px;
-            color: #007bff;
-            margin-top: 10px;
+            background-color: white; /* Белый фон для секций */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для секций */
         }
 
         footer {
-            position: absolute;
-            /* Позиционируем внизу */
-            bottom: 10px;
-            /* Отступ от низа */
-            font-size: 14px;
-            /* Размер шрифта */
-            color: #555;
-            /* Цвет текста */
+            margin-top: 20px; /* Уменьшен верхний отступ */
+            padding: 10px; /* Уменьшен нижний отступ */
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            width: 100%;
         }
 
-        .info-container {
-            position: relative;
-            /* Позволяет позиционировать дочерний элемент относительно этого контейнера */
-        }
+        /* Добавление стилей для адаптивности */
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+            }
 
-        #infoText {
-            position: absolute;
-            /* Позиционируем текст относительно контейнера */
-            top: 20px;
-            /* Отступ сверху */
-            left: 0;
-            /* По умолчанию прижимаем к левому краю */
-            background-color: #fff;
-            /* Фон белый */
-            border: 1px solid #ccc;
-            /* Обводка */
-            padding: 10px;
-            /* Отступы внутри блока */
-            z-index: 10;
-            /* Обеспечиваем, чтобы он был выше других элементов */
-        }
-
-        svg {
-            width: 30px;
+            nav ul li {
+                margin: 5px 0; /* Уменьшены отступы для мобильных устройств */
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <div class="note">
-        Данный сайт может искать цены только iPhone выше 11 модели
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Главная</a></li>
+                <li><a href="/price.html">Цены</a></li>
+                <li><a href="/sites.html">Сайты</a></li>
+                <li><a href="/promo.html">Акции</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <div class="container">
+        <h1>Добро пожаловать на главную страницу!</h1>
+
+        <section id="prices">
+            <h2>Цены</h2>
+            <p>Здесь вы можете найти актуальные цены на iPhone.</p>
+        </section>
+
+        <section id="sites">
+            <h2>Сайты</h2>
+            <p>Здесь представлены сайты, в которых полезная информация.</p>
+        </section>
+
+        <section id="promotions">
+            <h2>Акции</h2>
+            <p>Здесь вы можете узнать о текущих акциях и скидках iStudio (msk).</p>
+        </section>
     </div>
-
-    <div class="info-container">
-        <input type="text" id="searchInput" placeholder="Введите запрос...">
-        <span id="infoQuestion" style="cursor: pointer;">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                <g id="SVGRepo_iconCarrier">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75ZM1.25 12C1.25 6.06294 6.06294 1.25 12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12ZM12 7.75C11.3787 7.75 10.875 8.25368 10.875 8.875C10.875 9.28921 10.5392 9.625 10.125 9.625C9.71079 9.625 9.375 9.28921 9.375 8.875C9.375 7.42525 10.5503 6.25 12 6.25C13.4497 6.25 14.625 7.42525 14.625 8.875C14.625 9.83834 14.1056 10.6796 13.3353 11.1354C13.1385 11.2518 12.9761 11.3789 12.8703 11.5036C12.7675 11.6246 12.75 11.7036 12.75 11.75V13C12.75 13.4142 12.4142 13.75 12 13.75C11.5858 13.75 11.25 13.4142 11.25 13V11.75C11.25 11.2441 11.4715 10.8336 11.7266 10.533C11.9786 10.236 12.2929 10.0092 12.5715 9.84439C12.9044 9.64739 13.125 9.28655 13.125 8.875C13.125 8.25368 12.6213 7.75 12 7.75ZM12 17C12.5523 17 13 16.5523 13 16C13 15.4477 12.5523 15 12 15C11.4477 15 11 15.4477 11 16C11 16.5523 11.4477 17 12 17Z"
-                        fill="#1C274C"></path>
-                </g>
-            </svg></span>
-        <div id="infoText"
-            style="display: none; position: absolute; background-color: #fff; border: 1px solid #ccc; padding: 10px; z-index: 10;">
-            11, 11 pro, 11 pro max,<br> 12, 12 mini, 12 pro, 12 pro max,<br> 13, 13 mini, 13 pro, 13 pro max,<br> 14, 14
-            plus, 14 pro, 14 pro max,<br> 15, 15 plus, 15 pro, 15 pro max,<br> 16, 16 plus, 16 pro, 16 pro max
-        </div>
-    </div>
-
-    <button id="searchButton">Найти</button>
-    <div class="loading" id="loading" style="display: none;">Загрузка...</div>
-    <div class="links" id="results"></div>
 
     <footer>
         © Milinov
     </footer>
-
-    <script>
-        const input = document.getElementById('searchInput');
-        const results = document.getElementById('results');
-        const searchButton = document.getElementById('searchButton');
-        const loading = document.getElementById('loading');
-
-        // Массив моделей iPhone
-        const models = [
-            '16',
-            '16 plus',
-            '16 pro',
-            '16 pro max',
-            '15',
-            '15 plus',
-            '15 pro',
-            '15 pro max',
-            '14 pro max ',
-            '14 pro',
-            '14 plus',
-            '14',
-            '13 pro max',
-            '13 pro ',
-            '13 mini',
-            '13',
-            '12 pro max',
-            '12 pro ',
-            '12 mini',
-            '12',
-            '11 pro max',
-            '11 pro',
-            '11'
-        ];
-
-        searchButton.addEventListener('click', function () {
-            const query = input.value.toLowerCase().trim();
-            results.innerHTML = '';
-            loading.style.display = 'block'; // Показываем индикатор загрузки
-
-            // Задержка в 0.5 секунды перед выполнением поиска
-            setTimeout(() => {
-                // Проверяем, если введенный текст соответствует одной из моделей
-                const isIphoneIncluded = query.includes('iphone');
-                const searchQuery = isIphoneIncluded ? query : 'iphone ' + query;
-
-                if (models.some(model => searchQuery.includes(model))) {
-                    const stores = [{
-                            name: 'М.Видео',
-                            url: `https://www.mvideo.ru/product-list-page?q=${encodeURIComponent(searchQuery)}`
-                        },
-                        {
-                            name: 'ДНС',
-                            url: ` https://www.dns-shop.ru/search/?q=${encodeURIComponent(searchQuery)}`
-                        },
-                        {
-                            name: 'Рестор',
-                            url: `https://re-store.ru/search/?q=${encodeURIComponent(searchQuery)}`
-                        },
-                        {
-                            name: 'МТС',
-                            url: `https://shop.mts.ru/search/?TYPE=products&q=${encodeURIComponent(searchQuery)}`
-                        },
-                        {
-                            name: 'Билайн',
-                            url: `https://moskva.beeline.ru/search/?term=${encodeURIComponent(searchQuery)}`
-                        },
-                        {
-                            name: 'Мегафон',
-                            url: `https://moscow.shop.megafon.ru/search?qry=${encodeURIComponent(searchQuery)}`
-                        },
-                        {
-                            name: 'Эльдорадо',
-                            url: `https://www.eldorado.ru/search/catalog.php?q=${encodeURIComponent(searchQuery)}`
-                        },
-                        {
-                            name: 'Технопарк',
-                            url: `https://www.technopark.ru/search/?q=${encodeURIComponent(searchQuery)}`
-                        }
-
-                    ];
-
-                    stores.forEach(store => {
-                        const a = document.createElement('a');
-                        a.href = store.url;
-                        a.target = "_blank";
-                        a.className = 'store-button';
-                        a.innerText = store.name;
-                        results.appendChild(a);
-                    });
-
-                    // Изменяем цвет кнопки на зеленый
-                    searchButton.classList.add('success');
-                    searchButton.classList.remove('error');
-                } else {
-                    results.innerHTML = '<div> Модель не найдена. Пожалуйста, попробуйте другую.</div>';
-
-                    // Изменяем цвет кнопки на красный
-                    searchButton.classList.add('error');
-                    searchButton.classList.remove('success');
-                }
-
-                loading.style.display = 'none'; // Скрываем индикатор загрузки
-
-                // Возвращаем цвет кнопки к исходному через 3 секунды
-                setTimeout(() => {
-                    searchButton.classList.remove('error', 'success');
-                }, 3000);
-            }, 500); // Задержка 0.5 секунды
-        });
-        const infoQuestion = document.getElementById('infoQuestion');
-        const infoText = document.getElementById('infoText');
-
-        infoQuestion.addEventListener('mouseenter', function () {
-            infoText.style.display = 'block'; // Показываем текст
-        });
-
-        infoQuestion.addEventListener('mouseleave', function () {
-            infoText.style.display = 'none'; // Скрываем текст
-        });
-
-        // Обработка события click для мобильных устройств
-        infoQuestion.addEventListener('click', function () {
-            if (infoText.style.display === 'block') {
-                infoText.style.display = 'none'; // Скрываем текст, если он уже виден
-            } else {
-                infoText.style.display = 'block'; // Показываем текст
-            }
-        });
-    </script>
 
 </body>
 

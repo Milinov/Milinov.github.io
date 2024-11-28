@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор сайтов</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding-top: 60px; /* Отступ для хедера */
+            background-color: #f8f9fa; /* Светлый фон */
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 0; /* Уменьшены отступы */
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px; /* Уменьшены отступы между пунктами меню */
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px; /* Уменьшен размер шрифта */
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffdd57; /* Цвет при наведении */
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Центрирование карточек */
+            max-width: 800px; /* Максимальная ширина контейнера */
+            width: 100%; /* Ширина 100% для мобильных устройств */
+            margin: 20px; /* Отступы вокруг контейнера */
+        }
+
+        .card {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 10px; /* Отступы между карточками */
+            width: 200px; /* Ширина карточки */
+            text-align: center; /* Центрирование текста */
+            transition: transform 0.3s; /* Плавный эффект при наведении */
+        }
+
+        .card img {
+            width: 100%; /* Ширина изображения 100% */
+            border-top-left-radius: 5px; /* Скругление верхних углов */
+            border-top-right-radius: 5px; /* Скругление верхних углов */
+        }
+
+        .card:hover {
+            transform: scale(1.05); /* Увеличение карточки при наведении */
+        }
+
+        .card-title {
+            padding: 10px;
+            font-size: 18px; /* Размер шрифта для названия */
+            color: #333; /* Цвет текста */
+            text-decoration: none; /* Убираем подчеркивание */
+        }
+
+        footer {
+            margin-top: 20px; /* Уменьшен верхний отступ */
+            padding: 10px; /* Уменьшен нижний отступ */
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Главная</a></li>
+                <li><a href="/price.html">Цены</a></li>
+                <li><a href="/sites.html">Сайты</a></li>
+                <li><a href="/promo.html">Акции</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <a href="/country.html" class="card-title">
+                <img src="/img/country.png" alt="страна айфона">
+                Страна айфона
+            </a>
+        </div>
+        <div class="card">
+            <a href="https://checkcoverage.apple.com/?locale=ru_RU" class="card-title">
+                <img src="/img/apple-icon.png" alt="Сайт 2">
+                Проверка на гарнтию iPhone Apple
+            </a>
+        </div>
+        <div class="card">
+            <a href="https://sickw.com" class="card-title">
+                <img src="/img/apple-iphone-app-icon.png" alt="Сайт 3">
+                Подробная проверка айфона по imei
+        </div>
+        <div class="card">
+            <a href="https://istudio-msk.ru" class="card-title">
+                <img src="/img/6982003-2.png" alt="Сайт 4">
+                iStudio
+            </a>
+        </div>
+
+        </div>
+    </div>
+
+    <footer>
+        © Milinov
+    </footer>
+
+</body>
+
+</html>

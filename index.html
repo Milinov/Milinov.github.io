@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск iPhone</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            position: relative; /* Для позиционирования footer */
+            margin: 0; /* Убираем отступы по умолчанию */
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+
+        .store-button {
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .store-button:hover {
+            background-color: #218838;
+        }
+
+        .note {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .error {
+            background-color: #dc3545 !important;
+        }
+
+        .success {
+            background-color: #28a745 !important;
+        }
+
+        .loading {
+            font-size: 16px;
+            color: #007bff;
+            margin-top: 10px;
+        }
+
+        footer {
+            position: absolute; /* Позиционируем внизу */
+            bottom: 10px; /* Отступ от низа */
+            font-size: 14px; /* Размер шрифта */
+            color: #555; /* Цвет текста */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="note">
+        Данный сайт может искать цены только на iPhone: <br>
+        15, 15 Plus, 15 Pro, 15 Pro Max, <br>
+        16, 16 Plus, 16 Pro, 16 Pro Max
+    </div>
+
+    <input type="text" id="searchInput" placeholder="Введите запрос...">
+    <button id="searchButton">Найти</button>
+    <div class="loading" id="loading" style="display: none;">Загрузка...</div>
+    <div class="links" id="results"></div>
+
+    <footer>
+        © Milinov
+    </footer>
+
+    <script>
+        const input = document.getElementById('searchInput');
+        const results = document.getElementById('results');
+        const searchButton = document.getElementById('searchButton');
+        const loading = document.getElementById('loading');
+
+        // Массив моделей iPhone
+        const models = [
+            'iphone 16',
+            'iphone 16 plus',
+            'iphone 16 pro',
+            'iphone 16 pro max',
+            'iphone 15',
+            'iphone 15 plus',
+            'iphone 15 pro',
+            'iphone 15 pro max'
+        ];
+
+        searchButton.addEventListener('click', function () {
+            const query = input.value.toLowerCase();
+            results.innerHTML = '';
+            loading.style.display = 'block'; // Показываем индикатор загрузки
+
+            // Задержка в 0.5 секунды перед выполнением поиска
+            setTimeout(() => {
+                // Проверяем, если введенный текст соответствует одной из моделей
+                if (models.some(model => query.includes(model))) {
+                    const stores = [{
+                            name: 'М.Видео',
+                            url: `https://www.mvideo.ru/product-list-page?q=${encodeURIComponent(query)}`
+                        },
+                        {
+                            name: 'ДНС',
+                            url: `https://www.dns-shop.ru/search/?q=${encodeURIComponent(query)}`
+                        },
+                        {
+                            name: 'Рестор',
+                            url: `https://re-store.ru/search/?q=${encodeURIComponent(query)}`
+                        },
+                        {
+                            name: 'МТС',
+                            url: `https://shop.mts.ru/search/?TYPE=products&q=${encodeURIComponent(query)}`
+                        },
+                        {
+                            name: 'Билайн',
+                            url: `https://moskva.beeline.ru/search/?term=${encodeURIComponent(query)}`
+                        },
+                        {
+                            name: 'Мегафон',
+                            url: `https://moscow.shop.megafon.ru/search?qry=${encodeURIComponent(query)}`
+                        },
+                        {
+                            name: 'Эльдорадо',
+                            url: `https://www.eldorado.ru/search/catalog.php?q=${encodeURIComponent(query)}`
+                        }
+                    ];
+
+                    stores.forEach(store => {
+                        const a = document.createElement('a');
+                        a.href = store.url;
+                        a.target = "_blank";
+                        a.className = 'store-button';
+                        a.innerText = store.name;
+                        results.appendChild(a);
+                    });
+
+                    // Изменяем цвет кнопки на зеленый
+                    searchButton.classList.add('success');
+                    searchButton.classList.remove('error');
+                } else {
+                    results.innerHTML = '<div> Модель не найдена. Пожалуйста, попробуйте другую.</div>';
+
+                    // Изменяем цвет кнопки на красный
+                    searchButton.classList.add('error');
+                    searchButton.classList.remove('success');
+                }
+
+                loading.style.display = 'none'; // Скрываем индикатор загрузки
+
+                // Возвращаем цвет кнопки к исходному через 3 секунды
+                setTimeout(() => {
+                    searchButton.classList.remove('error', 'success');
+                }, 3000);
+            }, 500); // Задержка 0.5 секунды
+        });
+    </script>
+
+</body>
+
+</html>

@@ -115,7 +115,8 @@
             z-index: 10;
             /* Обеспечиваем, чтобы он был выше других элементов */
         }
-        svg { 
+
+        svg {
             width: 30px;
         }
     </style>
@@ -131,8 +132,7 @@
     <div class="info-container">
         <input type="text" id="searchInput" placeholder="Введите запрос...">
         <span id="infoQuestion" style="cursor: pointer;">
-            <svg viewBox="0 0 24 24" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                 <g id="SVGRepo_iconCarrier">
@@ -273,6 +273,15 @@
 
         infoQuestion.addEventListener('mouseleave', function () {
             infoText.style.display = 'none'; // Скрываем текст
+        });
+
+        // Обработка события click для мобильных устройств
+        infoQuestion.addEventListener('click', function () {
+            if (infoText.style.display === 'block') {
+                infoText.style.display = 'none'; // Скрываем текст, если он уже виден
+            } else {
+                infoText.style.display = 'block'; // Показываем текст
+            }
         });
     </script>
 

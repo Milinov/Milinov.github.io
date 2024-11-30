@@ -1,12 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <li><a href="/index.html">Главная</a></li>
-    <h1>Пока в разроботке</h1>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        #content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .news_item {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 15px 0;
+            display: flex;
+            flex-direction: row;
+            overflow: hidden;
+        }
+
+        .news_blk {
+            display: flex;
+            flex: 1;
+        }
+
+        .news_photo {
+            flex: 0 0 150px;
+            /* фиксированная ширина для изображения */
+        }
+
+        .news_photo img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px 0 0 8px;
+            /* закругленные углы для изображения */
+        }
+
+        .news_wrap {
+            padding: 15px;
+        }
+
+        .news_link {
+            font-size: 1.2em;
+            color: #007BFF;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+
+        .news_link:hover {
+            text-decoration: underline;
+        }
+
+        .news_text {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .news_date {
+            font-size: 0.9em;
+            color: #999;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffdd57;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            width: 100%;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: background-color 0.3s;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+    </style>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Главная</a></li>
+                <li><a href="/price.html">Цены</a></li>
+                <li><a href="/sites.html">Сайты</a></li>
+                <li><a href="/promo.html">Акции</a></li>
+                <li><a href="/feedback.html">Отзыв</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+
+
+
+
+
+    <section id="content" class=" start grid_12">
+        <div data-zone="15" class="zone zone15 cb" id="zone15"></div>
+        <h1>Акции </h1>
+        <div data-zone="2" class="zone zone2 cb" id="zone2"></div>
+        <section class="start end grid_12 typeblock  blk_nomarg_cont_lr_b">
+            <article>
+
+
+
+
+                <div class="notinblock news_item cb obj  obj2460">
+                    <div class="news_blk blk-flex">
+                        <div class="news_photo"><img src="/a/istudio/files/multifile/2366/preview_Banner__27_.png">
+                        </div>
+                        <div class="news_wrap">
+                            <div class="news_link"><a href="/informaciya/akcii/akcii_2460.html">BLACK FRIDAY</a></div>
+                            <div class="news_text">Скидка -70% на технику Apple</div>
+                            <div class="news_date">21.11.2024</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="notinblock news_item cb obj  obj2344">
+                    <div class="news_blk blk-flex">
+                        <div class="news_photo"><img src="/a/istudio/files/multifile/2366/preview_Banner_kesh.png">
+                        </div>
+                        <div class="news_wrap">
+                            <div class="news_link"><a href="/informaciya/akcii/akcii_2344.html">3 000 бонусов за
+                                    регистрацию</a></div>
+                            <div class="news_text">Мы дарим 3 000 баллов на бонусную карту за регистрацию в системе
+                                лояльности в магазинах iStudio (1 бонус = 1 рублю)</div>
+                            <div class="news_date">01.10.2024</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="notinblock news_item cb obj  obj2225">
+                    <div class="news_blk blk-flex">
+                        <div class="news_photo"><img
+                                src="/a/istudio/files/multifile/2366/preview_Podarok_pri_pokupke.webp"></div>
+                        <div class="news_wrap">
+                            <div class="news_link"><a href="/informaciya/akcii/akcii_2225.html">Акция "Подарок при
+                                    покупке" 2024</a></div>
+                            <div class="news_text">Для получения подарка power bank magsafe или беспроводные наушники,
+                                необходимо приобрести 3 аксессуара при покупке техники в розничных магазинах нашей сети.
+                                Срок акции до конца 2024 года, цены и позиции могут меняться. Не является публичной
+                                офертой.<br>
+                                <br>
+                                ​ERID: 2Vtzqwi4CZD Реклама. О рекламодателе: ООО «БЭСТБАЙ», ИНН 1650399627, ОГРН
+                                1211600014075</div>
+                            <div class="news_date">01.01.2024</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="notinblock news_item cb obj  obj2231">
+                    <div class="news_blk blk-flex">
+                        <div class="news_photo"><img
+                                src="/a/istudio/files/multifile/2366/preview_8e56e0ec_21a1_4063_88f8_2da420a8ba83__1___1_.png">
+                        </div>
+                        <div class="news_wrap">
+                            <div class="news_link"><a href="/informaciya/akcii/akcii_2231.html">Акция "Кэшбек с каждой
+                                    покупки" 2024</a></div>
+                            <div class="news_text">Верните часть денег в виде кэшбека и потратьте их на все что угодно в
+                                нашем магазине!<br>
+                                <br>
+                                Кэшбек копится и сохраняется на вашем счету, вы можете использовать эту сумму для
+                                приобретения аксеcсуаров, гарнитуры или доплаты при покупке<br>
+                                <br>
+                                ERID: 2Vtzqutp5zX Реклама. О рекламодателе: ООО «БЭСТБАЙ», ИНН 1650399627, ОГРН
+                                1211600014075</div>
+                            <div class="news_date">01.01.2024</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="notinblock news_item cb obj  obj2213">
+                    <div class="news_blk blk-flex">
+                        <div class="news_photo"><img src="/a/istudio/files/multifile/2366/Tovar_dnya.webp"></div>
+                        <div class="news_wrap">
+                            <div class="news_link"><a href="/informaciya/akcii/akcii_2213.html">Акция "Товар дня"
+                                    2024</a></div>
+                            <div class="news_text">Для покупки по акции "товар дня" необходимо оформить к заказу три
+                                аксессуара, сделать это можно, как на сайте, так и в розничном магазине сети iStudio.
+                                Цены указаны за наличный расчет. Срок акции до конца 2024 года, цены и позиции могут
+                                меняться. Не является публичной офертой.<br>
+                                <br>
+                                ERID: 2VtzqutiiHd Реклама. О рекламодателе: ООО «БЭСТБАЙ», ИНН 1650399627, ОГРН
+                                1211600014075.</div>
+                            <div class="news_date">01.01.2024</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </article>
+        </section>
+
+    </section>
+
+    <footer>
+        © Milinov
+    </footer>
+
 </body>
+
 </html>

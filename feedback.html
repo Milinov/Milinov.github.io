@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding-top: 60px;
+            background-color: #f4f4f4;
+            /* Светлый фон */
+            color: #333;
+            /* Темный текст */
+            transition: background-color 0.3s, color 0.3s;
+            /* Плавный переход */
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffdd57;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            /* Белый фон для контейнера */
+            border-radius: 5px;
+            /* Закругленные углы */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* Тень */
+            transition: background-color 0.3s, box-shadow 0.3s;
+            /* Плавный переход */
+        }
+
+        h1 {
+            margin: 10px 0;
+            color: #333;
+            text-align: center;
+        }
+
+        body.dark h1 {
+            color: #f4f4f4;
+            /* Светлый текст заголовка в тёмной теме */
+        }
+
+        section {
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            /* Светлый фон для секций */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, border-color 0.3s;
+            /* Плавный переход */
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            width: 100%;
+        }
+
+        svg {
+            width: 50px;
+        }
+
+        .tg {
+            display: flex;
+            /* Используем flexbox для центрирования содержимого */
+            flex-direction: column;
+            /* Устанавливаем направление колонкой */
+            align-items: center;
+            /* Центрируем по горизонтали */
+            justify-content: center;
+            /* Центрируем по вертикали */
+            text-align: center;
+            text-decoration: none;
+            border: 2px solid #40B3E0;
+            /* Устанавливаем границу */
+            border-radius: 10px;
+            /* Закругляем углы границы */
+            padding: 20px;
+            /* Внутренние отступы */
+            margin: 20px auto;
+            /* Внешние отступы для центрирования */
+            max-width: 300px;
+            /* Максимальная ширина элемента */
+            background-color: white;
+            /* Цвет фона */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* Тень для эффекта */
+        }
+
+        /* Адаптивные стили */
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Главная </a></li>
+                <li><a href="/price.html">Цены</a></li>
+                <li><a href="/sites.html">Сайты</a></li>
+                <li><a href="/promo.html">Акции</a></li>
+                <li><a href="/feedback.html">Отзыв</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>По всем пожеланиям на новые фишки сайта</h1>
+
+        <div class="tg">
+            <a href="https://t.me/milinov666">
+                <svg viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" fill="#000000">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <g>
+                            <path
+                                d="M128,0 C57.307,0 0,57.307 0,128 L0,128 C0,198.693 57.307,256 128,256 L128,256 C198.693,256 256,198.693 256,128 L256,128 C256,57.307 198.693,0 128,0 L128,0 Z"
+                                fill="#40B3E0"> </path>
+                            <path
+                                d="M190.2826,73.6308 L167.4206,188.8978 C167.4206,188.8978 164.2236,196.8918 155.4306,193.0548 L102.6726,152.6068 L83.4886,143.3348 L51.1946,132.4628 C51.1946,132.4628 46.2386,130.7048 45.7586,126.8678 C45.2796,123.0308 51.3546,120.9528 51.3546,120.9528 L179.7306,70.5928 C179.7306,70.5928 190.2826,65.9568 190.2826,73.6308"
+                                fill="#FFFFFF"> </path>
+                            <path
+                                d="M98.6178,187.6035 C98.6178,187.6035 97.0778,187.4595 95.1588,181.3835 C93.2408,175.3085 83.4888,143.3345 83.4888,143.3345 L161.0258,94.0945 C161.0258,94.0945 165.5028,91.3765 165.3428,94.0945 C165.3428,94.0945 166.1418,94.5735 163.7438,96.8115 C161.3458,99.0505 102.8328,151.6475 102.8328,151.6475"
+                                fill="#D2E5F1"> </path>
+                            <path
+                                d="M122.9015,168.1154 L102.0335,187.1414 C102.0335,187.1414 100.4025,188.3794 98.6175,187.6034 L102.6135,152.2624"
+                                fill="#B5CFE4"> </path>
+                        </g>
+                    </g>
+                </svg>
+                <h2>Telegramm</h2>
+            </a>
+        </div>
+
+
+
+        <footer>
+            © Milinov
+        </footer>
+
+</body>
+
+</html>

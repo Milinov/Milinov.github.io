@@ -10,57 +10,24 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
             padding-top: 60px;
-            /* Отступ для хедера */
-            background-color: #f8f9fa;
-            /* Светлый фон */
-            color: black;
-            /* Цвет текста по умолчанию */
+            background-color: #f0f0f5;
+            color: #333;
             transition: background-color 0.3s, color 0.3s;
-            /* Плавный переход */
         }
 
-
         header {
-            background-color: #007bff;
+            background-color: #007aff;
             color: white;
-            padding: 10px 0;
-            /* Уменьшены отступы */
+            padding: 15px 0;
             width: 100%;
             position: fixed;
             top: 0;
             left: 0;
             z-index: 1000;
-            transition: background-color 0.3s;
-            /* Плавный переход */
-        }
-
-
-        footer {
-            margin-top: 20px;
-            /* Уменьшен верхний отступ */
-            padding: 10px;
-            /* Уменьшен нижний отступ */
-            background-color: #007bff;
-            color: white;
-            text-align: center;
-            width: 100%;
-            transition: background-color 0.3s;
-            /* Плавный переход */
-        }
-
-        header {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 0;
-            /* Уменьшены отступы */
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         nav ul {
@@ -73,82 +40,61 @@
 
         nav ul li {
             margin: 0 15px;
-            /* Уменьшены отступы между пунктами меню */
         }
 
         nav ul li a {
             color: white;
             text-decoration: none;
             font-size: 16px;
-            /* Уменьшен размер шрифта */
             transition: color 0.3s;
         }
 
         nav ul li a:hover {
             color: #ffdd57;
-            /* Цвет при наведении */
         }
 
         .container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            /* Центрирование карточек */
             max-width: 800px;
-            /* Максимальная ширина контейнера */
             width: 100%;
-            /* Ширина 100% для мобильных устройств */
             margin: 20px;
-            /* Отступы вокруг контейнера */
         }
 
         .card {
             background-color: white;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             margin: 10px;
-            /* Отступы между карточками */
-            width: 200px;
-            /* Ширина карточки */
+            width: 180px;
             text-align: center;
-            /* Центрирование текста */
-            transition: transform 0.3s;
-            /* Плавный эффект при наведении */
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .card img {
             margin: 5px;
-            justify-content: center;
-            width: 150px;
-            /* Ширина изображения 100% */
-            border-top-left-radius: 5px;
-            /* Скругление верхних углов */
-            border-top-right-radius: 5px;
-            /* Скругление верхних углов */
+            width: 100px;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
         }
 
         .card:hover {
             transform: scale(1.05);
-            /* Увеличение карточки при наведении */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
 
         .card-title {
             padding: 10px;
-            font-size: 18px;
-            /* Размер шрифта для названия */
+            font-size: 16px;
             color: #333;
-            /* Цвет текста */
             text-decoration: none;
-            /* Убираем подчеркивание */
         }
 
         footer {
             margin-top: 20px;
-            /* Уменьшен верхний отступ */
             padding: 10px;
-            /* Уменьшен нижний отступ */
-            background-color: #007bff;
+            background-color: #007aff;
             color: white;
             text-align: center;
             width: 100%;
@@ -167,49 +113,47 @@
                 <li><a href="/promo.html">Акции</a></li>
                 <li><a href="/feedback.html">Отзыв</a></li>
                 <li><a href="/video.html">Видео</a></li>
-
             </ul>
         </nav>
     </header>
 
     <div class="container">
         <div class="card">
-            <a href="/country.html" class="card-title">
+            <a href="/country.html" target="_blank" class="card-title">
                 <img src="/img/country.png" alt="страна айфона">
                 Страна айфона
             </a>
         </div>
         <div class="card">
-            <a href="https://checkcoverage.apple.com/?locale=ru_RU" target="_blank" class="card-title">
+            <a href="https://checkcoverage.apple.com/?locale=ru_RU" class="card-title">
                 <img src="/img/apple-icon.png" alt="Сайт 2">
                 Проверка на гарнтию iPhone Apple
             </a>
         </div>
         <div class="card">
-            <a href="https://sickw.com" target="_blank" class="card-title">
+            <a href="https://sickw.com" class="card-title">
                 <img src="/img/apple-iphone-app-icon.png" alt="Сайт 3">
                 Подробная проверка айфона по imei
+            </a>
         </div>
         <div class="card">
-            <a href="https://istudio-msk.ru" target="_blank" class="card-title">
-                <img src="/img/6982003-2.png"  alt="Сайт 4">
+            <a href="https://istudio-msk.ru" class=" card-title">
+                <img src="/img/6982003-2.png" alt="Сайт 4">
                 iStudio
             </a>
         </div>
         <div class="card">
-            <a href="https://www.avito.ru/profile/" target="_blank" class="card-title">
-                <img src="/img/avito.png" alt="Сайт 4">
+            <a href="https://www.avito.ru/profile/" class="card-title">
+                <img src="/img/avito.png" alt="Сайт 5">
                 Avito
             </a>
         </div>
         <div class="card">
-            <a href="https://istudio16crm.amocrm.ru/todo/line/" target="_blank" class="card-title">
-                <img src="/img/amo.png" alt="Сайт 4">
+            <a href="https://istudio16crm.amocrm.ru/todo/line/" class="card-title">
+                <img src="/img/amo.png" alt="Сайт 6">
                 AMOCRM
             </a>
         </div>
-
-    </div>
     </div>
 
     <footer>

@@ -15,23 +15,20 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding-top: 60px;
-            background-color: #f4f4f4;
-            /* Светлый фон */
-            color: #333;
-            /* Темный текст */
-            transition: background-color 0.3s, color 0.3s;
-            /* Плавный переход */
+            background-color: #f0f0f5; /* Светлый фон, похожий на iOS */
+            color: #333; /* Темный текст */
         }
 
         header {
-            background-color: #007bff;
-            color: white;
+            background-color: #ffffff; /* Белый фон заголовка */
+            color: #333;
             padding: 10px 0;
             width: 100%;
             position: fixed;
             top: 0;
             left: 0;
             z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для заголовка */
         }
 
         nav ul {
@@ -47,32 +44,35 @@
         }
 
         nav ul li a {
-            color: white;
+            color: #007bff; /* Цвет ссылок */
             text-decoration: none;
             font-size: 16px;
             transition: color 0.3s;
         }
 
         nav ul li a:hover {
-            color: #ffdd57;
+            color: #0056b3; /* Цвет при наведении */
         }
 
         footer {
             margin-top: 20px;
             padding: 10px;
-            background-color: #007bff;
-            color: white;
+            background-color: #ffffff; /* Белый фон для подвала */
+            color: #333;
             text-align: center;
             width: 100%;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Тень для подвала */
         }
 
         .video-section {
-            margin-top: 80px;
-            /* Отступ сверху, чтобы не перекрывался заголовком */
+            margin-top: 80px; /* Отступ сверху, чтобы не перекрывался заголовком */
             padding: 20px;
             width: 100%;
             max-width: 800px;
             text-align: center;
+            background-color: #ffffff; /* Белый фон для секции видео */
+            border-radius: 10px; /* Закругленные углы */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень для секции видео */
         }
 
         .video {
@@ -81,8 +81,19 @@
 
         iframe {
             width: 100%;
-            height: 315px;
-            /* Высота видео */
+            height: 315px; /* Высота видео */
+            border-radius: 10px; /* Закругленные углы для видео */
+            overflow: hidden; /* Скрыть переполнение */
+        }
+
+        h2 {
+            font-size: 24px; /* Размер заголовка */
+            margin-bottom: 20px; /* Отступ снизу */
+        }
+
+        h3 {
+            font-size: 18px; /* Размер подзаголовка */
+            margin: 10px 0; /* Отступ сверху и снизу */
         }
     </style>
 </head>
@@ -98,7 +109,6 @@
                 <li><a href="/promo.html">Акции</a></li>
                 <li><a href="/feedback.html">Отзыв</a></li>
                 <li><a href="/video.html">Видео</a></li>
-
             </ul>
         </nav>
     </header>
@@ -107,52 +117,29 @@
         <h2>Полезные видео</h2>
         <div class="video">
             <h3>1 - Жёсткий сброс iPhone</h3>
-
-            <iframe width="720" height="405"
-                src="https://rutube.ru/play/embed/7bdd76070b4f86581b2b661a37574a65/?p=d4x2LCP92bc07YqNmUtfYA"
-                frameBorder="0" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen
-                allowFullScreen></iframe>
+            <iframe src="https://rutube.ru/play/embed/7bdd76070b4f86581b2b661a37574a65 /?p=d4x2LCP92bc07YqNmUtfYA" frameBorder="0" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
         </div>
         <div class="video">
             <h3>2 - Как сбросить AirPods</h3>
-
-            <iframe width="720" height="405"
-                src="https://rutube.ru/play/embed/14be93861e6a8dafd596c4d3de8d1da6/?p=JX5JLB7HoRCaW6Ln-gx1fw"
-                frameBorder="0" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen
-                allowFullScreen></iframe>
+            <iframe src="https://rutube.ru/play/embed/14be93861e6a8dafd596c4d3de8d1da6/?p=JX5JLB7HoRCaW6Ln-gx1fw" frameBorder="0" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
         </div>
         <div class="video">
             <h3>3 - Как создать Apple ID</h3>
-
-            <iframe width="720" height="405"
-                src="https://rutube.ru/play/embed/8ab5992553ca05ab3661769d937a5924/?p=wH3eSddh2Ka-SVCSNGlN7A"
-                frameBorder="0" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen
-                allowFullScreen></iframe>
+            <iframe src="https://rutube.ru/play/embed/8ab5992553ca05ab3661769d937a5924/?p=wH3eSddh2Ka-SVCSNGlN7A" frameBorder="0" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
         </div>
         <div class="video">
             <h3>4 - Перенос данных</h3>
-
-            <iframe width="720" height="405"
-                src="https://rutube.ru/play/embed/419deac3f99abf8c6a331e94fea0670f/?p=4MxR3cph14z2UsX0AdBwFg"
-                frameBorder="0" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen
-                allowFullScreen></iframe>
+            <iframe src="https://rutube.ru/play/embed/419deac3f99abf8c6a331e94fea0670f/?p=4MxR3cph14z2UsX0AdBwFg" frameBorder="0" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
         </div>
         <div class="video">
             <h3>5 - Как установить Office на Mac</h3>
-
-            <iframe width="720" height="405"
-                src="https://rutube.ru/play/embed/ab4cd349a0aa25f6921210b3bf693a59/?p=jVOFOdXXj8PdJsem8ljdEA"
-                frameBorder="0" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen
-                allowFullScreen></iframe>
+            <iframe src="https://rutube.ru/play/embed/ab4cd349a0aa25f6921210b3bf693a59/?p=jVOFOdXXj8PdJsem8ljdEA" frameBorder="0" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
         </div>
     </div>
 
     <footer>
         © Milinov
     </footer>
-
-
-
 
 </body>
 

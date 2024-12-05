@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная страница</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             display: flex;
@@ -15,16 +14,12 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding-top: 60px;
-            background-color: #f4f4f4;
-            /* Светлый фон */
-            color: #333;
-            /* Темный текст */
-            transition: background-color 0.3s, color 0.3s;
-            /* Плавный переход */
+            background-color: #f7f7f8; /* Светлый фон, как в iOS */
+            color: #333; /* Темный текст */
         }
 
         header {
-            background-color: #007bff;
+            background-color: #007aff; /* Цвет заголовка */
             color: white;
             padding: 10px 0;
             width: 100%;
@@ -32,6 +27,9 @@
             top: 0;
             left: 0;
             z-index: 1000;
+            text-align: center;
+            font-size: 20px;
+            border-bottom: 1px solid #d1d1d6; /* Легкая граница снизу */
         }
 
         nav ul {
@@ -62,79 +60,62 @@
             width: 100%;
             margin: 0 auto;
             padding: 20px;
-            background-color: white;
-            /* Белый фон для контейнера */
-            border-radius: 5px;
-            /* Закругленные углы */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            /* Тень */
-            transition: background-color 0.3s, box-shadow 0.3s;
-            /* Плавный переход */
+            background-color: white; /* Белый фон для контейнера */
+            border-radius: 12px; /* Закругленные углы */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень */
+            margin-top: 80px; /* Отступ сверху для фиксированного заголовка */
         }
 
         h1 {
             margin: 10px 0;
             color: #333;
             text-align: center;
-        }
-
-        body.dark h1 {
-            color: #f4f4f4;
-            /* Светлый текст заголовка в тёмной теме */
+            font-size: 24px;
         }
 
         section {
             margin: 10px 0;
             padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-            /* Светлый фон для секций */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s, border-color 0.3s;
-            /* Плавный переход */
+            border: 1px solid #d1d1d6; /* Светлая граница */
+            border-radius: 10px; /* Закругленные углы */
+            background-color: #f9f9f9; /* Светлый фон для секций */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Легкая тень */
+            transition: background-color 0.3s;
+        }
+
+        section:hover {
+            background-color: #e0e0e5; /* Цвет при наведении */
         }
 
         footer {
             margin-top: 20px;
             padding: 10px;
-            background-color: #007bff;
+            background-color: #007aff; /* Цвет подвала */
             color: white;
             text-align: center;
             width: 100%;
+            border-radius: 0 0 12px 12px; /* Закругленные углы внизу */
+        }
+
+        .tg {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            text-decoration: none;
+            border: 1px solid #d1d1d6; /* Светлая граница */
+            border-radius: 10px; /* Закругленные углы */
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 300px;
+            background-color: white; /* Цвет фона */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для эффекта */
         }
 
         svg {
             width: 50px;
         }
-
-        .tg {
-            display: flex;
-            /* Используем flexbox для центрирования содержимого */
-            flex-direction: column;
-            /* Устанавливаем направление колонкой */
-            align-items: center;
-            /* Центрируем по горизонтали */
-            justify-content: center;
-            /* Центрируем по вертикали */
-            text-align: center;
-            text-decoration: none;
-            border: 2px solid #40B3E0;
-            /* Устанавливаем границу */
-            border-radius: 10px;
-            /* Закругляем углы границы */
-            padding: 20px;
-            /* Внутренние отступы */
-            margin: 20px auto;
-            /* Внешние отступы для центрирования */
-            max-width: 300px;
-            /* Максимальная ширина элемента */
-            background-color: white;
-            /* Цвет фона */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            /* Тень для эффекта */
-        }
-
     </style>
 </head>
 
@@ -143,14 +124,12 @@
     <header>
         <nav>
             <ul>
-                <li><a href="/index.html">Главная </a></li>
+                <li><a href="/index.html">Главная</a></li>
                 <li><a href="/price.html">Цены</a></li>
-                <li><a href="/sites.html">Сайты</a></li>
+                <li><a href="/sites.html">Сайты</a </li>
                 <li><a href="/promo.html">Акции</a></li>
                 <li><a href="/feedback.html">Отзыв</a></li>
                 <li><a href="/video.html">Видео</a></li>
-
-
             </ul>
         </nav>
     </header>
@@ -184,8 +163,6 @@
                 <h2>Telegramm</h2>
             </a>
         </div>
-
-
 
         <footer>
             © Milinov

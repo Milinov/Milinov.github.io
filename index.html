@@ -4,96 +4,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная страница</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Настройки</title>
+    <link href="https://fonts.googleapis.com/css2?family=San Francisco:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             display: flex;
             flex-direction: column;
             align-items: center;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'San Francisco', sans-serif;
             margin: 0;
             padding-top: 60px;
-            background-color: #f4f4f4; /* Светлый фон */
+            background-color: #f0f0f5; /* Светлый фон */
             color: #333; /* Темный текст */
-            transition: background-color 0.3s, color 0.3s; /* Плавный переход */
         }
 
-
         header {
-            background-color: #007bff;
+            background-color: #007aff; /* Цвет заголовка */
             color: white;
-            padding: 5px 0;
+            padding: 10px 0;
             width: 100%;
             position: fixed;
             top: 0;
             left: 0;
             z-index: 1000;
-        }
-
-        nav ul {
-            list-style-type: none;
-            display: flex;
-            justify-content: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #ffdd57;
+            text-align: center;
+            font-size: 20px;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 600px;
             width: 100%;
             margin: 0 auto;
             padding: 20px;
             background-color: white; /* Белый фон для контейнера */
-            border-radius: 5px; /* Закругленные углы */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень */
-            transition: background-color 0.3s, box-shadow 0.3s; /* Плавный переход */
+            border-radius: 12px; /* Закругленные углы */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень */
+            margin-top: 80px; /* Отступ сверху для фиксированного заголовка */
         }
-
 
         h1 {
             margin: 10px 0;
             color: #333;
             text-align: center;
+            font-size: 24px;
         }
 
         section {
             margin: 10px 0;
             padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            border: 1px solid #d1d1d6; /* Светлая граница */
+            border-radius: 10px; /* Закругленные углы */
             background-color: #f9f9f9; /* Светлый фон для секций */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s, border-color 0.3s; /* Плавный переход */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Легкая тень */
+            transition: background-color 0.3s;
+        }
+
+        section:hover {
+            background-color: #e0e0e5; /* Цвет при наведении */
         }
 
         footer {
             margin-top: 20px;
             padding: 10px;
-            background-color: #007bff;
+            background-color: #007aff; /* Цвет подвала */
             color: white;
             text-align: center;
             width: 100%;
+            border-radius: 0 0 12px 12px; /* Закругленные углы внизу */
         }
+
         a {
             text-decoration: none;
-            color: black; 
+            color: #007aff; /* Цвет ссылок */
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration: underline; /* Подчеркивание при наведении */
         }
     </style>
 </head>
@@ -101,55 +88,27 @@
 <body>
 
     <header>
-        <nav>
-            <ul>
-                <li><a href="/index.html">Главная </a></li>
-                <li><a href="/price.html">Цены</a></li>
-                <li><a href="/sites.html">Сайты</a></li>
-                <li><a href="/promo.html">Акции</a></li>
-                <li><a href="/feedback.html">Отзыв</a></li>
-                <li><a href="/video.html">Видео</a></li>
-
-
-            </ul>
-        </nav>
+        Главная
     </header>
 
     <div class="container">
-        <h1>Добро пожаловать на главную страницу!</h1>
-<a href="/price.html">
-        <section id="prices">
-            <h2>Цены</h2>
-            <p>Здесь вы можете найти актуальные цены на iPhone.</p>
-        </section>
-    </a>
-<a href="/sites.html">
-        <section id="sites">
-            <h2>Сайты</h2>
-            <p>Здесь представлены сайты, в которых полезная информация.</p>
-        </section>
-        </a>
-<a href="/promo.html">
-        <section id="promotions">
-            <h2>Акции</h2>
-            <p>Здесь вы можете узнать о текущих акциях и скидках iStudio (msk).</p>
-        </section>
-    </a>
 
-<a href="/feedback.html">
-        <section id="feedback">
-            <h2>Отзыв</h2>
-            <p>Здесь пишите отзыв по поводу сайта и предложения по дороботке. </p>
+        <section>
+            <h2><a href="/price.html">Цены</a></h2>
         </section>
-    </a>
-<a href="/video.html">
-        <section id="video">
-            <h2>Видео</h2>
-            <p>В основном для новичков , подсказки как сдлеать то или иное действие.</p>
+        <section>
+            <h2><a href="/sites.html">Сайты</a></h2>
         </section>
-        </a>
+        <section>
+            <h2><a href="/promo.html">Акции</a></h2>
+        </section>
+        <section>
+            <h2><a href="/feedback.html">Отзыв</a></h2>
+        </section>
+        <section>
+            <h2><a href="/video.html">Видео</a></h2>
+        </section>
     </div>
-    
 
     <footer>
         © Milinov

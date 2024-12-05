@@ -5,128 +5,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Поиск iPhone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Стили для хедера */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding-top: 60px;
+            background-color: #f7f7f8; /* Светлый фон */
+            color: #333; /* Темный текст */
+        }
+
         header {
-            background-color: #007bff;
+            background-color: #007aff; /* Цвет заголовка */
             color: white;
             padding: 10px 0;
             width: 100%;
             position: fixed;
-            /* Закрепляем хедер в верхней части экрана */
             top: 0;
             left: 0;
             z-index: 1000;
-            /* Устанавливаем высокий z-index, чтобы он был выше других элементов */
+            text-align: center;
+            font-size: 20px;
+            border-bottom: 1px solid #d1d1d6; /* Легкая граница снизу */
         }
 
         nav ul {
             list-style-type: none;
-            /* Убираем маркеры списка */
             display: flex;
-            /* Используем flexbox для горизонтального расположения */
             justify-content: center;
-            /* Центрируем элементы по горизонтали */
             margin: 0;
-            /* Убираем отступы */
             padding: 0;
-            /* Убираем внутренние отступы */
         }
 
         nav ul li {
             margin: 0 15px;
-            /* Отступы между элементами */
         }
 
         nav ul li a {
             color: white;
-            /* Цвет текста */
             text-decoration: none;
-            /* Убираем подчеркивание */
-            font-size: 18px;
-            /* Размер шрифта */
+            font-size: 16px;
+            transition: color 0.3s;
         }
 
         nav ul li a:hover {
-            text-decoration: underline;
-            /* Подчеркиваем текст при наведении */
+            color: #ffdd57; /* Цвет при наведении */
         }
 
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-            font-family: Arial, sans-serif;
+        .note {
+            margin: 20px 0;
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+        }
+
+        .info-container {
             position: relative;
-            margin: 0;
-            padding-top: 60px;
-            /* Отступ для контента, чтобы он не перекрывался хедером */
+            margin: 20px ;
+            padding: 20px;
+            background-color: white; /* Белый фон для контейнера */
+            border-radius: 12px; /* Закругленные углы */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень */
+            width: 90%; /* Ширина контейнера */
+            max-width: 600px; /* Максимальная ширина */
         }
 
         input {
             padding: 10px;
             font-size: 16px;
             margin-bottom: 10px;
+            border: 1px solid #d1d1d6; /* Светлая граница */
+            border-radius: 8px; /* Закругленные углы */
+            width: 90%; /* Полная ширина */
         }
 
         button {
             padding: 10px 15px;
             font-size: 16px;
             cursor: pointer;
-            background-color: #007bff;
+            background-color: #007aff; /* Цвет кнопки */
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px; /* Закругленные углы */
             transition: background-color 0.3s;
+            width: 50%; /* Уменьшенная ширина */
+            margin-top: 10px; /* Отступ сверху */
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: #0056b3; /* Цвет при на ведении */
+        }
+
+        .loading {
+            font-size: 16px;
+            color: #007aff;
+            margin-top: 10px;
         }
 
         .links {
             display: flex;
             flex-direction: column;
             margin-top: 20px;
+            width: 40%; /* Полная ширина */
         }
 
         .store-button {
             padding: 10px;
             margin: 5px 0;
-            background-color: #28a745;
+            background-color: #28a745; /* Цвет кнопки магазина */
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px; /* Закругленные углы */
             cursor: pointer;
             text-align: center;
             text-decoration: none;
             transition: background-color 0.3s;
+            width: auto; /* Автоматическая ширина */
         }
 
         .store-button:hover {
-            background-color: #218838;
-        }
-
-        .note {
-            margin-bottom: 10px;
-            font-size: 14px;
-            color: #555;
-        }
-
-        .error {
-            background-color: #dc3545 !important;
-        }
-
-        .success {
-            background-color: #28a745 !important;
-        }
-
-        .loading {
-            font-size: 16px;
-            color: #007bff;
-            margin-top: 10px;
+            background-color: #218838; /* Цвет при наведении */
         }
 
         footer {
@@ -134,17 +136,20 @@
             bottom: 10px;
             font-size: 14px;
             color: #555;
-            background-color: #007bff;
+            background-color: #007aff; /* Цвет подвала */
             color: white;
             width: 100%;
-            margin-top: 20px; /* Уменьшен верхний отступ */
-            padding: 10px; /* Уменьшен нижний отступ */
+            padding: 10px;
             text-align: center;
-
+            border-radius: 0 0 12px 12px; /* Закругленные углы внизу */
         }
 
-        .info-container {
-            position: relative;
+        .error {
+            background-color: #dc3545 !important; /* Цвет ошибки */
+        }
+
+        .success {
+            background-color: #28a745 !important; /* Цвет успеха */
         }
 
         #infoText {
@@ -154,13 +159,24 @@
             border: 1px solid #ccc;
             padding: 10px;
             z-index: 10;
+            border-radius: 8px; /* Закругленные углы */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень */
+            width: 200px; /* Ширина сноски */
+            text-align: center; /* Центрирование текста */
+            right: 0; /* Сдвиг сноски вправо */
+            margin-top: 5px; /* Отступ сверху */
+        }
+
+        #infoQuestion {
+            font-size: 18px; /* Размер шрифта для вопросительного знака */
+            color: #007aff; /* Цвет вопросительного знака */
+            margin-left: 10px; /* Отступ слева */
+            cursor: pointer; /* Указатель при наведении */
         }
 
         svg {
-            width: 30px;
+            width: 30px; /* Размер иконок */
         }
-
-
     </style>
 </head>
 
@@ -175,8 +191,6 @@
                 <li><a href="/promo.html">Акции</a></li>
                 <li><a href="/feedback.html">Отзыв</a></li>
                 <li><a href="/video.html">Видео</a></li>
-
-
             </ul>
         </nav>
     </header>
@@ -186,8 +200,8 @@
     </div>
 
     <div class="info-container">
-        <input type="text" id="searchInput" placeholder="Введите запрос...">
-        <span id="infoQuestion" style="cursor: pointer;">?</span>
+        <input type="text" id="searchInput" placeholder="Введите модель...">
+        <span id="infoQuestion">?</span>
         <div id="infoText">
             11, 11 pro, 11 pro max,<br> 12, 12 mini, 12 pro, 12 pro max,<br> 13, 13 mini, 13 pro, 13 pro max,<br> 14, 14
             plus, 14 pro, 14 pro max,<br> 15, 15 plus, 15 pro, 15 pro max,<br> 16, 16 plus, 16 pro, 16 pro max
@@ -206,6 +220,7 @@
         const input = document.getElementById('searchInput');
         const results = document.getElementById('results');
         const searchButton = document.getElementById('searchButton');
+
         const loading = document.getElementById('loading');
 
         // Массив моделей iPhone
@@ -334,13 +349,10 @@
         infoQuestion.addEventListener('touchend', function () {
             if (infoText.style.display === 'block') {
                 infoText.style.display = 'none'; // Скрываем текст, если он уже виден
-            } else {
-                infoText.style.display = 'block'; // Показываем текст
+            } else
+                {infoText.style.display = 'block'; // Показываем текст
             }
         });
-        const themeToggle = document.getElementById('themeToggle');
-
-
     </script>
 
 </body>

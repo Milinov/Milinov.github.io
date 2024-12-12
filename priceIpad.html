@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск ipad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding-top: 60px;
+            background-color: #f7f7f8;
+            /* Светлый фон */
+            color: #333;
+            /* Темный текст */
+        }
+
+        header {
+            background-color: #007aff;
+            /* Цвет заголовка */
+            color: white;
+            padding: 10px 0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            text-align: center;
+            font-size: 20px;
+            border-bottom: 1px solid #d1d1d6;
+            /* Легкая граница снизу */
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffdd57;
+            /* Цвет при наведении */
+        }
+
+        .note {
+            margin: 20px 0;
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+        }
+
+        .info-container {
+            position: relative;
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            /* Белый фон для контейнера */
+            border-radius: 12px;
+            /* Закругленные углы */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            /* Тень */
+            width: 90%;
+            /* Ширина контейнера */
+            max-width: 600px;
+            /* Максимальная ширина */
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            border: 1px solid #d1d1d6;
+            /* Светлая граница */
+            border-radius: 8px;
+            /* Закругленные углы */
+            width: 90%;
+            /* Полная ширина */
+        }
+
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007aff;
+            /* Цвет кнопки */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            /* Закругленные углы */
+            transition: background-color 0.3s;
+            width: 50%;
+            /* Уменьшенная ширина */
+            margin-top: 10px;
+            /* Отступ сверху */
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            /* Цвет при наведении */
+        }
+
+        a {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007aff;
+            text-align: center;
+            text-decoration: none;
+            /* Цвет кнопки */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            /* Закругленные углы */
+            transition: background-color 0.3s;
+            width: 50%;
+            /* Уменьшенная ширина */
+            margin-top: 10px;
+            /* Отступ сверху */
+        }
+
+        a:hover {
+            background-color: #0056b3;
+            /* Цвет при наведении */
+        }
+
+        .loading {
+            font-size: 16px;
+            color: #007aff;
+            margin-top: 10px;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            width: 40%;
+            /* Полная ширина */
+        }
+
+        .store-button {
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #28a745;
+            /* Цвет кнопки магазина */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            /* Закругленные углы */
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            width: auto;
+            /* Автоматическая ширина */
+        }
+
+        .store-button:hover {
+            background-color: #218838;
+            /* Цвет при наведении */
+        }
+
+        footer {
+            position: absolute;
+            bottom: 10px;
+            font-size: 14px;
+            color: #555;
+            background-color: #007aff;
+            /* Цвет подвала */
+            color: white;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            border-radius: 0 0 12px 12px;
+            /* Зак ругленные углы внизу */
+        }
+
+        .error {
+            background-color: #dc3545 !important;
+            /* Цвет ошибки */
+        }
+
+        .success {
+            background-color: #28a745 !important;
+            /* Цвет успеха */
+        }
+
+        #infoText {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            z-index: 10;
+            border-radius: 8px;
+            /* Закругленные углы */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* Тень */
+            width: 200px;
+            /* Ширина сноски */
+            text-align: center;
+            /* Центрирование текста */
+            right: 0;
+            /* Сдвиг сноски вправо */
+            margin-top: 5px;
+            /* Отступ сверху */
+        }
+
+        #infoQuestion {
+            font-size: 18px;
+            /* Размер шрифта для вопросительного знака */
+            color: #007aff;
+            /* Цвет вопросительного знака */
+            margin-left: 10px;
+            /* Отступ слева */
+            cursor: pointer;
+            /* Указатель при наведении */
+        }
+
+        .suggestions {
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            width: 90%;
+            /* Ширина подсказки */
+            max-height: 150px;
+            /* Максимальная высота */
+            overflow-y: auto;
+            /* Прокрутка, если слишком много элементов */
+            display: none;
+            /* Скрыто по умолчанию */
+        }
+
+        .suggestions div {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .suggestions div:hover {
+            background-color: #f0f0f0;
+            /* Цвет при наведении */
+        }
+
+        svg {
+            width: 30px;
+            /* Размер иконок */
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Главная</a></li>
+                <li><a href="/price.html">Цены</a></li>
+                <li><a href="/sites.html">Сайты</a></li>
+                <li><a href="/promo.html">Акции</a></li>
+                <li><a href="/feedback.html">Предложения</a></li>
+                <li><a href="/video.html">Видео</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="note">
+        Данный сайт может искать цены только на iPad
+    </div>
+
+    <div class="info-container">
+        <input type="text" id="searchInput" placeholder="Введите модель...">
+        <div class="suggestions" id="suggestions"></div>
+        <div class="links" id="results"></div>
+        <span id="infoQuestion">?</span>
+        <div id="infoText">
+            'iPad Air 5 (2022)',  <br>
+            'iPad mini 6 (2021)', <br>
+            'iPad mini 7 (2024)', <br>
+            'iPad Pro 11 (2022)', <br>
+            'iPad Pro 12,9" (2022)', <br>
+            'iPad Pro 11 (2024)', <br>
+            'iPad Pro 12,9" (2024)', <br>
+            'iPad Air 11 (2022)', <br>
+            'iPad Air 12,9" (2022)', <br>
+            'iPad Air 11 (2024)', <br>
+            'iPad Air 12,9" (2024)', <br>
+            'iPad 10.9 (2022)' <br>
+        </div>
+    </div>
+
+    <button id="searchButton">Найти</button>
+    <a href="/price.html">Цены на iPhone</a>
+    <div class="loading" id="loading" style="display: none;">Загрузка...</div>
+    <div class="links" id="html-results"></div>
+
+    <footer>
+        © Milinov
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const input = document.getElementById('searchInput');
+            const results = document.getElementById('html-results');
+            const searchButton = document.getElementById('searchButton');
+            const loading = document.getElementById('loading');
+            const suggestions = document.getElementById('suggestions');
+    
+            const models = [
+                'iPad Air 5 (2022)',
+                'iPad mini 6 (2021)',
+                'iPad mini 7 (2024)',
+                'iPad Pro 11 (2022)',
+                'iPad Pro 12,9" (2022)',
+                'iPad Pro 11 (2024)',
+                'iPad Pro 12,9" (2024)',
+                'iPad Air 11 (2022)',
+                'iPad Air 12,9" (2022)',
+                'iPad Air 11 (2024)',
+                'iPad Air 12,9" (2024)',
+                'Apple iPad 10.9 (2022)'
+            ];
+    
+            const memoryOptions = {
+                'iPad Air 5 (2022)': ['64', '256'],
+                'iPad mini 6 (2021)': ['64', '256'],
+                'iPad mini 7 (2024)': ['128', '256', '512'],
+                'iPad Pro 11 (2022)': ['256', '512','1tb', '128'],
+                'iPad Pro 12,9" (2022)': ['256', '512','1tb', '128'],
+                'iPad Pro 11 (2024)': ['256', '512','1tb', '2tb'],
+                'iPad Pro 12,9" (2024)': ['256', '512','1tb', '2tb'],
+                'iPad Air 11 (2022)': ['64', '128'],
+                'iPad Air 12,9" (2022)': ['64', '128'],
+                'iPad Air 11 (2024)': ['256', '512','1tb', '128'],
+                'iPad Air 12,9" (2024)': ['256', '512','1tb', '128'],
+                'iPad 10.9 (2022)': ['64', '256']
+            };
+    
+            // Helper function to clear suggestions
+            const clearSuggestions = () => {
+                suggestions.innerHTML = '';
+                suggestions.style.display = 'none';
+            };
+    
+            // Populate suggestions dynamically
+            const populateSuggestions = (query) => {
+                clearSuggestions();
+                if (!query) return;
+    
+                for (const model in memoryOptions) {
+                    if (model.toLowerCase().includes(query)) {
+                        const options = memoryOptions[model];
+                        options.forEach(option => {
+                            const optionDiv = document.createElement('div');
+                            optionDiv.innerText = `${model} ${option}`;
+                            optionDiv.tabIndex = 0; // Make it focusable
+                            optionDiv.addEventListener('click', () => {
+                                input.value = `${model} ${option}`;
+                                clearSuggestions();
+                            });
+                            suggestions.appendChild(optionDiv);
+                        });
+                        suggestions.style.display = 'block';
+                        break;
+                    }
+                }
+            };
+    
+            input.addEventListener('input', () => {
+                const query = input.value.toLowerCase().trim();
+                populateSuggestions(query);
+            });
+    
+            // Perform search
+            searchButton.addEventListener('click', () => {
+                const query = input.value.toLowerCase().trim();
+                results.innerHTML = '';
+                loading.style.display = 'block';
+    
+                setTimeout(() => {
+                    const matchedModel = Object.keys(memoryOptions).find(model =>
+                        query.includes(model.toLowerCase())
+                    );
+    
+                    if (matchedModel) {
+                        const stores = [
+                            { name: 'М.Видео', url: `https://www.mvideo.ru/product-list-page?q=${encodeURIComponent(query)}` },
+                            { name: 'ДНС', url: `https://www.dns-shop.ru/search/?q=${encodeURIComponent(query)}` },
+                            { name: 'Рестор', url: `https://re-store.ru/search/?q=${encodeURIComponent(query)}` },
+                            { name: 'МТС', url: `https://shop.mts.ru/search/?TYPE=products&q=${encodeURIComponent(query)}` },
+                            { name: 'Билайн', url: `https://moskva.beeline.ru/search/?term=${encodeURIComponent(query)}` },
+                            { name: 'Мегафон', url: `https://moscow.shop.megafon.ru/search?qry=${encodeURIComponent(query)}` },
+                            { name: 'Эльдорадо', url: `https://www.eldorado.ru/search/catalog.php?q=${encodeURIComponent(query)}` },
+                            { name: 'Технопарк', url: `https://www.technopark.ru/search/?q=${encodeURIComponent(query)}` },
+                        ];
+    
+                        stores.forEach(store => {
+                            const a = document.createElement('a');
+                            a.href = store.url;
+                            a.target = "_blank";
+                            a.className = 'store-button';
+                            a.innerText = store.name;
+                            results.appendChild(a);
+                        });
+    
+                        searchButton.classList.add('success');
+                        searchButton.classList.remove('error');
+                    } else {
+                        results.innerHTML = '<div> Модель не найдена. Пожалуйста, попробуйте другую.</div>';
+                        searchButton.classList.add('error');
+                        searchButton.classList.remove('success');
+                    }
+                    loading.style.display = 'none';
+                }, 1000);
+            });
+    
+            // Clear suggestions when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!suggestions.contains(e.target) && e.target !== input) {
+                    clearSuggestions();
+                }
+            });
+        });
+
+                // Обработка события click для мобильных устройств
+                infoQuestion.addEventListener('click', function () {
+            if (infoText.style.display === 'block') {
+                infoText.style.display = 'none'; // Скрываем текст, если он уже виден
+            } else {
+                infoText.style.display = 'block'; // Показываем текст
+            }
+        });
+
+        // Обработка события touchend для мобильных устройств
+        infoQuestion.addEventListener('touchend', function () {
+            if (infoText.style.display === 'block') {
+                infoText.style.display = 'none'; // Скрываем текст, если он уже виден
+            } else {
+                infoText.style.display = 'block'; // Показываем текст
+            }
+        });
+    </script>
+    
+
+</body>
+
+</html>

@@ -1,80 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-
+    <title>Настройки</title>
+    <link href="https://fonts.googleapis.com/css2?family=San Francisco:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f5; /* Светлый фон */
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-            margin: 20px 0;
-        }
-
-        #content {
-            max-width: 600px; /* Уменьшите ширину для мобильного стиля */
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .news_item {
-            background: #ffffff;
-            border-radius: 12px; /* Закругленные углы */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень */
-            margin: 15px 0;
             display: flex;
-            flex-direction: row;
-            overflow: hidden;
-            transition: transform 0.2s; /* Эффект при наведении */
-        }
-
-        .news_item:hover {
-            transform: scale(1.02); /* Увеличение при наведении */
-        }
-
-        .news_photo {
-            flex: 0 0 120px; /* Уменьшенная ширина для изображения */
-        }
-
-        .news_wrap {
-            padding: 15px;
-        }
-
-        .news_link {
-            font-size: 1.1em;
-            color: #007aff; /* Цвет ссылки, как в iOS */
-            text-decoration: none;
-            margin-bottom: 10px;
-        }
-
-        .news_link:hover {
-            text-decoration: underline;
-        }
-
-        .news_text {
+            flex-direction: column;
+            align-items: center;
+            font-family: 'San Francisco', sans-serif;
+            margin: 0;
+            padding-top: 60px;
+            background-color: #f0f0f5;
+            /* Светлый фон */
             color: #333;
-            margin-bottom: 10px;
-        }
-
-        .news_date {
-            font-size: 0.8em;
-            color: #999;
+            /* Темный текст */
         }
 
         header {
-            background-color: #007aff; /* Цвет заголовка, как в iOS */
+            background-color: #007aff;
+            /* Цвет заголовка */
             color: white;
             padding: 10px 0;
             width: 100%;
@@ -82,6 +30,36 @@
             top: 0;
             left: 0;
             z-index: 1000;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            /* Белый фон для контейнера */
+            border-radius: 12px;
+            /* Закругленные углы */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            /* Тень */
+            margin-top: 30px;
+            /* Отступ сверху для фиксированного заголовка */
+        }
+
+
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #007aff;
+            /* Цвет подвала */
+            color: white;
+            text-align: center;
+            width: 100%;
+            border-radius: 0 0 12px 12px;
+            /* Закругленные углы внизу */
         }
 
         nav ul {
@@ -90,11 +68,10 @@
             justify-content: center;
             margin: 0;
             padding: 0;
-
         }
 
         nav ul li {
-            margin: 0 10px; /* Уменьшите отступы */
+            margin: 0 15px;
         }
 
         nav ul li a {
@@ -105,18 +82,13 @@
         }
 
         nav ul li a:hover {
-            color: #ffdd57; /* Цвет при наведении */
-        }
-
-        footer {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #007aff; /* Цвет подвала, как в iOS */
-            color: white;
-            text-align: center;
-            width: 100%;
+            color: #ffdd57;
+            /* Цвет при наведении */
         }
     </style>
+</head>
+
+<body>
     <header>
         <nav>
             <ul>
@@ -130,87 +102,49 @@
         </nav>
     </header>
 
-    <section id="content" class="start grid_12 obj">
-        <div data-zone="15" class="zone zone15 cb" id="zone15"></div>
-        <h1>Акции </h1>
-        <div data-zone="2" class="zone zone2 cb" id="zone2"></div>
-        <section class="start end grid_12 typeblock blk_nomarg_cont_lr_b">
-            <article>
+    <div class="container">
+        <h2>Новогодний четвертак</h2>
+        <p>25% скидка на устройство</p>
+        <p>Условие : 3 акса к технике , Гарантия 36 акция</p>
+    </div>
 
-                <div class="notinblock news_item cb obj obj2460">
-                    <div class="news_blk blk-flex">
-                        <div class="news_photo"></div>
-                        <div class="news _wrap">
-                            <div class="news_link"><a href="/informaciya/akcii/akcii_2460.html">Новогодний четвертак!</a></div>
-                            <div class="news_text">Скидка -25% на технику Apple</div>
-                            <div class="news_date">01.12.2024</div>
-                        </div>
-                    </div>
-                </div>
+    <div class="container">
+        <h2>3000 бонусов</h2>
+        <p>+3к к бонусной карте</p>
+        <p>Условие : сделать <a href="https://taplink.cc/istudio_discovery" target="_blank" class="card-title"> бонусную карту</a>  и выложить сторис</p>
+    </div>
 
-                <div class="notinblock news_item cb obj obj2344">
-                    <div class="news_blk blk-flex">
-                        <div class="news_photo"></div>
-                        <div class="news_wrap">
-                            <div class="news_link"><a href="/informaciya/akcii/akcii_2344.html">3 000 бонусов за регистрацию</a></div>
-                            <div class="news_text">Мы дарим 3 000 баллов на бонусную карту за регистрацию в системе лояльности в магазинах iStudio (1 бонус = 1 рублю)</div>
-                            <div class="news_date">01.10.2024</div>
-                        </div>
-                    </div>
-                </div>
+    <div class="container">
+        <h2>Подарок к покупке</h2>
+        <p>Клиент может выбрать подарок ,,Airpods iStuio,, или ,,Magsafe powerbank iStuio,,</p>
+        <p>Условие : 3 акса к устройству </p>
+    </div>
 
-                <div class="notinblock news_item cb obj obj2225">
-                    <div class="news_blk blk-flex">
-                        <div class="news_photo"></div>
-                        <div class="news_wrap">
-                            <div class="news_link"><a href="/informaciya/akcii/akcii_2225.html">Акция "Подарок при покупке" 2024</a></div>
-                            <div class="news_text">Для получения подарка power bank magsafe или беспроводные наушники, необходимо приобрести 3 аксессуара при покупке техники в розничных магазинах нашей сети. Срок акции до конца 2024 года, цены и позиции могут меняться. Не является публичной офертой.<br>
-                            <br>
-                            ​ERID: 2Vtzqwi4CZD Реклама. О рекламодателе: ООО «БЭСТБАЙ», ИНН 1650399627, ОГРН 1211600014075</div>
-                            <div class="news_date">01.01.2024</div>
-                        </div>
-                    </div>
-                </div>
+    <div class="container">
+        <h2>КэшБэк к каждой покупке</h2>
+        <p>Возвращается 1% с покупки на бонусную карты</p>
+        <p>Условие : сделать <a href="https://taplink.cc/istudio_discovery" target="_blank" class="card-title"> бонусную карту</a> </p>
+    </div>
 
-                <div class="notinblock news_item cb obj obj2231">
-                    <div class="news_blk blk-flex">
-                        <div class="news_photo"></div>
-                        <div class="news_wrap">
-                            <div class="news_link"><a href="/informaciya/akcii/akcii_2231.html">Акция "Кэшбек с каждой покупки" 2024</a></div>
-                            <div class="news_text">Верните часть денег в виде кэшбека и потратьте их на все что угодно в нашем магазине!<br>
-                            <br>
-                            Кэшбек копится и сохраняется на вашем счету, вы можете использовать эту сумму для приобретения аксессуаров, гарнитуры или доплаты при покупке<br>
-                            <br>
-                            ERID: 2Vtzqutp5zX Реклама. О рекламодателе: ООО «БЭСТБАЙ», ИНН 1650399627, ОГРН 1211600014075</div>
-                            <div class="news_date">01.01.2024</div>
-                        </div>
-                    </div>
-                </div>
+    <div class="container">
+        <h2>Товар дня</h2>
+        <p>Для покупки по акции "товар дня" необходимо оформить к заказу три аксессуара, сделать это можно, как на сайте, так и в розничном магазине сети iStudio. Цены указаны за наличный расчет. Срок акции до конца 2024 года, цены и позиции могут меняться. Не является публичной офертой.</p>
+        <p>Условие : 3 акса к чеку </p>
+    </div>
 
-                <div class="notinblock news_item cb obj obj2213">
-                    <div class="news_blk blk-flex">
-                        <div class="news_photo"></div>
-                        <div class="news_wrap">
-                            <div class="news_link"><a href="/informaciya/akcii/akcii_2213.html">Акция "Товар дня" 2024</a></div>
-                            <div class="news_text">Для покупки по акции "товар дня" необходимо оформить к заказу три аксессуара, сделать это можно, как на сайте, так и в розничном магазине сети iStudio. Цены указаны за наличный расчет. Срок акции до конца 2024 года, цены и позиции могут меняться. Не является публичной офертой.<br>
-                            <br>
-                            ERID: 2VtzqutiiHd Реклама. О рекламодателе: ООО «БЭСТБАЙ», ИНН 1650399627, ОГРН 1211600014075.</div>
-                            <div class="news_date">01.01.2024</div>
-                        </div>
-                    </div>
-                </div>
+    <div class="container">
+        <h2>Кормилка / поилка Moreus</h2>
+        <p>Клиент может получить подарок</p>
+        <p>Условие : Фото питомца , 3 акса </p>
+    </div>
 
-            </article>
-        </section>
 
-    </section>
 
     <footer>
-        © Milinov
+        © Milinov <br>
+        Подробности у продавцов-консультантов. Не является публичной офертой. ООО «БЭСТБАЙ», ИНН 1650399627, ОГРН 1211600014075
     </footer>
-<script>
-    alert("В разработке");
-</script>
+
 </body>
 
 </html>

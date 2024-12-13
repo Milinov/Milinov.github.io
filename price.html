@@ -6,218 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Поиск iPhone</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100vh;
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding-top: 60px;
-            background-color: #f7f7f8;
-            color: #333;
-        }
-
-        header {
-            background-color: #007aff;
-            color: white;
-            padding: 10px 0;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            text-align: center;
-            font-size: 20px;
-            border-bottom: 1px solid #d1d1d6;
-        }
-
-        nav ul {
-            list-style-type: none;
-            display: flex;
-            justify-content: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #ffdd57;
-            /* Цвет при наведении */
-        }
-
-        .note {
-            margin: 20px 0;
-            font-size: 14px;
-            color: #555;
-            text-align: center;
-        }
-
-        .info-container {
-            position: relative;
-            margin: 20px;
-            padding: 20px;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 600px;
-        }
-
-        input {
-            padding: 10px;
-            font-size: 16px;
-            margin-bottom: 10px;
-            border: 1px solid #d1d1d6;
-            border-radius: 8px;
-            width: 90%;
-        }
-
-        button {
-            padding: 10px 15px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #007aff;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            transition: background-color 0.3s;
-            width: 50%;
-            margin-top: 10px;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-        a {
-            padding: 10px 15px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #007aff;
-            text-align: center;
-            text-decoration: none;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            transition: background-color 0.3s;
-            width: 50%;
-            margin-top: 10px;
-        }
-
-        a:hover {
-            background-color: #0056b3;
-        }
-        .loading {
-            font-size: 16px;
-            color: #007aff;
-            margin-top: 10px;
-        }
-
-        .links {
-            display: flex;
-            flex-direction: column;
-            margin-top: 20px;
-            width: 40%;
-        }
-
-        .store-button {
-            padding: 10px;
-            margin: 5px 0;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            transition: background-color 0.3s;
-            width: auto;
-        }
-
-        .store-button:hover {
-            background-color: #218838;
-        }
-
-        footer {
-            position: absolute;
-            bottom: 10px;
-            font-size: 14px;
-            color: #555;
-            background-color: #007aff;
-            color: white;
-            width: 100%;
-            padding: 10px;
-            text-align: center;
-            border-radius: 0 0 12px 12px;
-        }
-
-        .error {
-            background-color: #dc3545 !important;
-        }
-
-        .success {
-            background-color: #28a745 !important;
-        }
-
-        #infoText {
-            display: none;
-            position: absolute;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            padding: 10px;
-            z-index: 10;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            width: 200px;
-            text-align: center;
-            right: 0;
-            margin-top: 5px;
-        }
-
-        #infoQuestion {
-            font-size: 18px;
-            color: #007aff;
-            margin-left: 10px;
-            cursor: pointer;
-        }
-
-        .suggestions {
-            position: absolute;
-            background-color: white;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            z-index: 10;
-            width: 90%;
-            max-height: 150px;
-            overflow-y: auto;
-            display: none;
-        }
-
-        .suggestions div {
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        .suggestions div:hover {
-            background-color: #f0f0f0;
-        }
-
-        svg {
-            width: 30px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+  
 </head>
 
 <body>
@@ -249,7 +39,7 @@
             plus, 14 pro, 14 pro max,<br> 15, 15 plus, 15 pro, 15 pro max,<br> 16, 16 plus, 16 pro, 16 pro max
         </div>
     </div>
-    <a href="/priceIpad.html">Цены на iPad (Тест)</a>
+    <a href="/priceIpad.html">Цены на iPad</a>
     <button id="searchButton">Найти</button>
     <div class="loading" id="loading" style="display: none;">Загрузка...</div>
     <div class="links" id="html-results"></div>
@@ -444,6 +234,8 @@
                 suggestions.style.display = 'none'; 
             }
         });
+
+        
     </script>
 
 </body>

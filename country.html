@@ -9,15 +9,39 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
-            background-color: #f4f4f4;
+            background: linear-gradient(to right, #f0f0f5, #e0e0e5);
             color: #333;
             font-family: 'Roboto', sans-serif;
-            transition: background-color 0.3s, color 0.3s;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 60px;
         }
 
-        .dark-theme {
-            background-color: #333;
-            color: #f4f4f4;
+        header {
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .theme-toggle {
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
 
         .back-button {
@@ -30,22 +54,26 @@
             font-size: 18px;
             transition: background-color 0.3s, transform 0.2s;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .back-button:hover {
-            background-color: #218838;
-            transform: scale(1.05);
-        }
-
+            margin-bottom: 20px;
+            }
         .uk-table {
-            width: 100%;
+            width: 40%;
             border-collapse: collapse;
             margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         .uk-table th, .uk-table td {
             padding: 12px;
             border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .uk-table th {
+            background-color: #0056b3;
+            color: white;
         }
 
         .uk-table tr:nth-child(even) {
@@ -56,33 +84,19 @@
             background-color: #f1f1f1;
         }
 
-        .dark-theme .uk-table tr:nth-child(even) {
-            background-color: #444;
-        }
 
-        .dark-theme .uk-table tr:hover {
-            background-color: #555;
-        }
-
-        .theme-toggle {
-            padding: 10px 20px;
-            margin-bottom: 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .theme-toggle:hover {
+        footer {
+            margin-top: 30px;
+            padding: 15px;
             background-color: #0056b3;
+            color: white;
+            text-align: center;
+            width: 100%;
         }
     </style>
 </head>
-
 <body>
 
-    <button class="theme-toggle" id="theme-toggle"><i class="fas fa-adjust"></i> Переключить тему</button>
     <a href="/sites.html" class="back-button"><i class="fas fa-arrow-left"></i> Назад</a>
     <table class="uk-table uk-table-striped">
         <thead>
@@ -344,15 +358,41 @@
                 <td>ZP</td>
                 <td>Гонконг, Макао</td>
             </tr>
+
+            <thead>
+                <tr>
+                    <th>Страна</th>
+                    <th>Ограничения</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>ЕС</td>
+                <td>громкость в проводных наушниках в среднем ниже на 20%, на беспроводную гарнитуру не распространяется.</td>
+            </tr>
+            <tr>
+                <td>Япония</td>
+                <td>звук затвора не отключается даже при беззвучном режиме</td>
+            </tr>
+            <tr>
+                <td>ОАЭ, Саудовская Аравия</td>
+                <td>не работает FaceTime.</td>
+            </tr>
+            <tr>
+                <td>eSim</td>
+                <td>доступен только в версии для США и Пуэрто-Рико.</td>
+            </tr>
+            <tr>
+                <td>Dual-Sim</td>
+                <td>доступен только в версии для Китая, Макао</td>
+            </tr>
+            <tr>
+                <td>eSim+Sim</td>
+                <td>доступен в версиях для всех остальных стран.</td>
+            </tr>
+
         </tbody>
     </table>
 
-    <script>
-        const themeToggleButton = document.getElementById('theme-toggle');
-        themeToggleButton.addEventListener('click', () => {
-            document.body.classList.toggle('dark-theme');
-        });
-    </script>
 </body>
 
 </html>

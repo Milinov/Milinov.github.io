@@ -4,37 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Поиск iPhone</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Выбор сайтов</title>
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100vh;
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding-top: 60px;
-            background-color: #f7f7f8;
-            /* Светлый фон */
-            color: #333;
-            /* Темный текст */
-        }
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding-top: 60px;
+        background: linear-gradient(to right, #f0f0f5, #e0e0e5);
+        color: #333;
+    }
 
         header {
             background-color: #007aff;
-            /* Цвет заголовка */
             color: white;
-            padding: 10px 0;
+            padding: 15px 0;
             width: 100%;
             position: fixed;
             top: 0;
             left: 0;
             z-index: 1000;
-            text-align: center;
-            font-size: 20px;
-            border-bottom: 1px solid #d1d1d6;
-            /* Легкая граница снизу */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         nav ul {
@@ -58,211 +50,54 @@
 
         nav ul li a:hover {
             color: #ffdd57;
-            /* Цвет при наведении */
         }
 
-        .note {
-            margin: 20px 0;
-            font-size: 14px;
-            color: #555;
-            text-align: center;
-        }
-
-        .info-container {
-            position: relative;
-            margin: 20px;
-            padding: 20px;
-            background-color: white;
-            /* Белый фон для контейнера */
-            border-radius: 12px;
-            /* Закругленные углы */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            /* Тень */
-            width: 90%;
-            /* Ширина контейнера */
-            max-width: 600px;
-            /* Максимальная ширина */
-        }
-
-        input {
-            padding: 10px;
-            font-size: 16px;
-            margin-bottom: 10px;
-            border: 1px solid #d1d1d6;
-            /* Светлая граница */
-            border-radius: 8px;
-            /* Закругленные углы */
-            width: 90%;
-            /* Полная ширина */
-        }
-
-        button {
-            padding: 10px 15px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #007aff;
-            /* Цвет кнопки */
-            color: white;
-            border: none;
-            border-radius: 8px;
-            /* Закругленные углы */
-            transition: background-color 0.3s;
-            width: 50%;
-            /* Уменьшенная ширина */
-            margin-top: 10px;
-            /* Отступ сверху */
-        }
-
-        button:hover {
-            background-color: #0056b3;
-            /* Цвет при наведении */
-        }
-        a {
-            padding: 10px 15px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #007aff;
-            text-align: center;
-            text-decoration: none;
-            /* Цвет кнопки */
-            color: white;
-            border: none;
-            border-radius: 8px;
-            /* Закругленные углы */
-            transition: background-color 0.3s;
-            width: 50%;
-            /* Уменьшенная ширина */
-            margin-top: 10px;
-            /* Отступ сверху */
-        }
-
-        a:hover {
-            background-color: #0056b3;
-            /* Цвет при наведении */
-        }
-        .loading {
-            font-size: 16px;
-            color: #007aff;
-            margin-top: 10px;
-        }
-
-        .links {
+        .container {
             display: flex;
-            flex-direction: column;
-            margin-top: 20px;
-            width: 40%;
-            /* Полная ширина */
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 800px;
+            width: 100%;
+            margin: 20px;
         }
 
-        .store-button {
+            .card {
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        margin: 15px;
+        width: 200px;
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+        padding: 5px;
+    }
+
+        .card img {
+            margin: 20px;
+            width: 100px;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+
+            .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    }
+
+        .card-title {
             padding: 10px;
-            margin: 5px 0;
-            background-color: #28a745;
-            /* Цвет кнопки магазина */
-            color: white;
-            border: none;
-            border-radius: 8px;
-            /* Закругленные углы */
-            cursor: pointer;
-            text-align: center;
+            font-size: 16px;
+            color: #333;
             text-decoration: none;
-            transition: background-color 0.3s;
-            width: auto;
-            /* Автоматическая ширина */
-        }
-
-        .store-button:hover {
-            background-color: #218838;
-            /* Цвет при наведении */
         }
 
         footer {
-            position: absolute;
-            bottom: 10px;
-            font-size: 14px;
-            color: #555;
+            margin-top: 20px;
+            padding: 10px;
             background-color: #007aff;
-            /* Цвет подвала */
             color: white;
+            text-align: center;
             width: 100%;
-            padding: 10px;
-            text-align: center;
-            border-radius: 0 0 12px 12px;
-            /* Зак ругленные углы внизу */
-        }
-
-        .error {
-            background-color: #dc3545 !important;
-            /* Цвет ошибки */
-        }
-
-        .success {
-            background-color: #28a745 !important;
-            /* Цвет успеха */
-        }
-
-        #infoText {
-            display: none;
-            position: absolute;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            padding: 10px;
-            z-index: 10;
-            border-radius: 8px;
-            /* Закругленные углы */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            /* Тень */
-            width: 200px;
-            /* Ширина сноски */
-            text-align: center;
-            /* Центрирование текста */
-            right: 0;
-            /* Сдвиг сноски вправо */
-            margin-top: 5px;
-            /* Отступ сверху */
-        }
-
-        #infoQuestion {
-            font-size: 18px;
-            /* Размер шрифта для вопросительного знака */
-            color: #007aff;
-            /* Цвет вопросительного знака */
-            margin-left: 10px;
-            /* Отступ слева */
-            cursor: pointer;
-            /* Указатель при наведении */
-        }
-
-        .suggestions {
-            position: absolute;
-            background-color: white;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            z-index: 10;
-            width: 90%;
-            /* Ширина подсказки */
-            max-height: 150px;
-            /* Максимальная высота */
-            overflow-y: auto;
-            /* Прокрутка, если слишком много элементов */
-            display: none;
-            /* Скрыто по умолчанию */
-        }
-
-        .suggestions div {
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        .suggestions div:hover {
-            background-color: #f0f0f0;
-            /* Цвет при наведении */
-        }
-
-        svg {
-            width: 30px;
-            /* Размер иконок */
         }
     </style>
 </head>
@@ -282,228 +117,55 @@
         </nav>
     </header>
 
-    <div class="note">
-        Данный сайт может искать цены только iPhone выше 11 модели
-    </div>
-
-    <div class="info-container">
-        <input type="text" id="searchInput" placeholder="Введите модель...">
-        <div class="suggestions" id="suggestions"></div>
-        <div class="links" id="results"></div>
-        <span id="infoQuestion">?</span>
-        <div id="infoText">
-            11, 11 pro, 11 pro max,<br> 12, 12 mini, 12 pro, 12 pro max,<br> 13, 13 mini, 13 pro, 13 pro max,<br> 14, 14
-            plus, 14 pro, 14 pro max,<br> 15, 15 plus, 15 pro, 15 pro max,<br> 16, 16 plus, 16 pro, 16 pro max
+    <div class="container">
+        <div class="card">
+            <a href="/country.html"  class="card-title">
+                <img src="/img/country.png" alt="страна айфона">
+                Страна айфона
+            </a>
+        </div>
+        <div class="card">
+            <a href="https://checkcoverage.apple.com/?locale=ru_RU" target="_blank" class="card-title">
+                <img src="/img/apple-icon.png" alt="Сайт 2">
+                Проверка на гарнтию iPhone Apple
+            </a>
+        </div>
+        <div class="card">
+            <a href="https://sickw.com" target="_blank" class="card-title">
+                <img src="/img/apple-iphone-app-icon.png" alt="Сайт 3">
+                Подробная проверка айфона по imei
+            </a>
+        </div>
+        <div class="card">
+            <a href="https://istudio-msk.ru" target="_blank" class=" card-title">
+                <img src="/img/6982003-2.png" alt="Сайт 4">
+                iStudio
+            </a>
+        </div>
+        <div class="card">
+            <a href="https://www.avito.ru/profile/" target="_blank" class="card-title">
+                <img src="/img/avito.png" alt="Сайт 5">
+                Avito
+            </a>
+        </div>
+        <div class="card">
+            <a href="https://istudio16crm.amocrm.ru/todo/line/" target="_blank" class="card-title">
+                <img src="/img/amo.png" alt="Сайт 6">
+                AMOCRM
+            </a>
+        </div>
+        <div class="card">
+            <a href="https://taplink.cc/istudio_discovery" target="_blank" class="card-title">
+                <img src="/img/bonus.png" alt="Сайт 6">
+                Создать Бонусную 
+            </a>
         </div>
     </div>
-    <a href="/priceIpad.html">Цены на iPad</a>
-    <button id="searchButton">Найти</button>
-    <div class="loading" id="loading" style="display: none;">Загрузка...</div>
-    <div class="links" id="html-results"></div>
+
 
     <footer>
         © Milinov
     </footer>
-
-    <script>
-        const input = document.getElementById('searchInput');
-        const results = document.getElementById('html-results'); // Изменено на html-results
-        const searchButton = document.getElementById('searchButton');
-        const loading = document.getElementById('loading');
-        const suggestions = document.getElementById('suggestions');
-
-        // Массив моделей iPhone
-        const models = [
-            '16',
-            '16 plus',
-            '16 pro',
-            '16 pro max',
-            '15',
-            '15 plus',
-            '15 pro ',
-            '15 pro max',
-            '14 pro max',
-            '14 pro',
-            '14 plus',
-            '14',
-            '13 pro max',
-            '13 pro',
-            '13 mini',
-            '13',
-            '12 pro max',
-            '12 pro',
-            '12 mini',
-            '12',
-            '11 pro max',
-            '11 pro',
-            '11'
-        ];
-
-        // Объект с моделями и вариантами памяти
-        const memoryOptions = {
-            '16': ['128', '256', '512'],
-            '16 plus': ['128', '256', '512'],
-            '16 pro': ['128', '256', '512', '1TB'],
-            '16 pro max': ['256', '512', '1TB'],
-            '15': ['128', '256', '512'],
-            '15 plus': ['128', '256', '512'],
-            '15 pro': ['128', '256', '512', '1TB'],
-            '15 pro max': ['256', '512', '1TB'],
-            '14': ['128', '256', '512'],
-            '14 plus': ['128', '256', '512'],
-            '14 pro': ['128', '256', '512', '1TB'],
-            '14 pro max': ['128', '256', '512', '1TB'],
-            '13': ['128', '256', '512'],
-            '13 mini': ['128', '256', '512'],
-            '13 pro': ['128', '256', '512'],
-            '13 pro max': ['128', '256', '512', '1TB'],
-            '12 mini': ['64', '128', '256'],
-            '12': ['64', '128', '256'],
-            '12 pro': ['64', '128', '256', '512', '1TB'],
-            '12 pro max': ['64', '256', '512', '1TB'],
-            '11': ['64', '128'],
-            '11 pro': ['64', '256', '512'],
-            '11 pro max': ['64', '256', '512']
-        };
-
-        // Добавляем обработчик событий для поля ввода
-        input.addEventListener('input', function () {
-            const query = input.value.toLowerCase().trim();
-            suggestions.innerHTML = ''; // Очищаем предыдущие подсказки
-            suggestions.style.display = 'none'; // Скрываем подсказки по умолчанию
-
-            // Проверяем, если введенный текст соответствует одной из моделей
-            for (const model in memoryOptions) {
-                if (model.startsWith(query)) { // Изменено на startsWith для более точного поиска
-                    const options = memoryOptions[model];
-                    options.forEach(option => {
-                        const optionDiv = document.createElement('div');
-                        optionDiv.innerText = `${model} ${option}`; // Убираем "ГБ" и тире
-                        optionDiv.onclick = function () {
-                            input.value =
-                            `${model} ${option}`; // Устанавливаем выбранное значение в input
-                            suggestions.style.display = 'none'; // Скрываем подсказки
-                        };
-                        suggestions.appendChild(optionDiv);
-                    });
-                    suggestions.style.display = 'block'; // Показываем подсказки
-                    break; // Выходим из цикла, если нашли соответствие
-                }
-            }
-        });
-
-        searchButton.addEventListener('click', function () {
-            const query = input.value.toLowerCase().trim();
-            results.innerHTML = '';
-            loading.style.display = 'block'; // Показываем индикатор загрузки
-
-            // Задержка в 0.5 секунды перед выполнением поиска
-            setTimeout(() => {
-                // Проверяем, если введенный текст соответствует одной из моделей
-                const isIphoneIncluded = query.includes('iphone');
-                const searchQuery = isIphoneIncluded ? query : 'iphone ' + query;
-
-                if (models.some(model => searchQuery.includes(model))) {
-                    const stores = [{
-                            name: 'М.Видео',
-                            url: `https://www.mvideo.ru/product-list-page?q=${encodeURIComponent(searchQuery)}`
-                        },
-                        {
-                            name: 'ДНС',
-                            url: `https://www.dns-shop.ru/search/?q=${encodeURIComponent(searchQuery)}`
-                        },
-                        {
-                            name: 'Рестор',
-                            url: `https://re-store.ru/search/?q=${encodeURIComponent(searchQuery)}`
-                        },
-                        {
-                            name: 'МТС',
-                            url: `https://shop.mts.ru/search/?TYPE=products&q=${encodeURIComponent(searchQuery)}`
-                        },
-                        {
-                            name: 'Билайн',
-                            url: `https://moskva.beeline.ru/search/?term=${encodeURIComponent(searchQuery)}`
-                        },
-                        {
-                            name: 'Мегафон',
-                            url: `https://moscow.shop.megafon.ru/search?qry=${encodeURIComponent(searchQuery)}`
-                        },
-                        {
-                            name: 'Эльдорадо',
-                            url: `https://www.eldorado.ru/search/catalog.php?q=${encodeURIComponent(searchQuery)}`
-                        },
-                        {
-                            name: 'Технопарк',
-                            url: `https://www.technopark.ru/search/?q=${encodeURIComponent(searchQuery)}`
-                        }
-                    ];
-
-                    stores.forEach(store => {
-                        const a = document.createElement('a');
-                        a.href = store.url;
-                        a.target = "_blank";
-                        a.className = 'store-button';
-                        a.innerText = store.name;
-                        results.appendChild(a);
-                    });
-
-                    // Изменяем цвет кнопки на зеленый
-                    searchButton.classList.add('success');
-                    searchButton.classList.remove('error');
-                } else {
-                    results.innerHTML = '<div> Модель не найдена. Пожалуйста, попробуйте другую.</div>';
-
-                    // Изменяем цвет кнопки на красный
-                    searchButton.classList.add('error');
-                    searchButton.classList.remove('success');
-                }
-
-                loading.style.display = 'none'; // Скрываем индикатор загрузки
-
-                // Возвращаем цвет кнопки к исходному через 3 секунды
-                setTimeout(() => {
-                    searchButton.classList.remove('error', 'success');
-                }, 3000);
-            }, 500); // Задержка 0.5 секунды
-        });
-
-        const infoQuestion = document.getElementById('infoQuestion');
-        const infoText = document.getElementById('infoText');
-
-        infoQuestion.addEventListener('mouseenter', function () {
-            infoText.style.display = 'block'; // Показываем текст
-        });
-
-        infoQuestion.addEventListener('mouseleave', function () {
-            infoText.style.display = 'none'; // Скрываем текст
-        });
-
-        // Обработка события click для мобильных устройств
-        infoQuestion.addEventListener('click', function () {
-            if (infoText.style.display === 'block') {
-                infoText.style.display = 'none'; // Скрываем текст, если он уже виден
-            } else {
-                infoText.style.display = 'block'; // Показываем текст
-            }
-        });
-
-        // Обработка события touchend для мобильных устройств
-        infoQuestion.addEventListener('touchend', function () {
-            if (infoText.style.display === 'block') {
-                infoText.style.display = 'none'; // Скрываем текст, если он уже виден
-            } else {
-                infoText.style.display = 'block'; // Показываем текст
-            }
-        });
-
-        // Скрываем подсказки, если пользователь кликнул вне поля ввода
-        document.addEventListener('click', function (event) {
-            if (!input.contains(event.target) && !suggestions.contains(event.target)) {
-                suggestions.style.display = 'none'; // Скрываем подсказки
-            }
-        });
-    </script>
-
 </body>
 
 </html>

@@ -383,9 +383,13 @@
                         {
                             name: 'Технопарк',
                             url: `https://www.technopark.ru/search/?q=${encodeURIComponent(searchQuery)}`
+                        },
+                        {
+                            name: 'Ситилинк',
+                            url: `https://www.citilink.ru/search/?text=${encodeURIComponent(searchQuery)}`
                         }
                     ];
-
+https://www.citilink.ru/search/?text=iPhone+16
                     stores.forEach(store => {
                         const a = document.createElement('a');
                         a.href = store.url;

@@ -338,7 +338,13 @@
                 const searchQuery = isIphoneIncluded ? query : 'iphone ' + query;
 
                 if (models.some(model => searchQuery.includes(model))) {
-                    const stores = [{
+                    const stores = [
+                        {
+                            name: 'iStudio',
+                            url: `https://discovery.istudio-msk.ru/catalog/?q=${encodeURIComponent(searchQuery)}`
+                        },
+                    
+                        {
                             name: 'М.Видео',
                             url: `https://www.mvideo.ru/product-list-page?q=${encodeURIComponent(searchQuery)}`
                         },

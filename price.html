@@ -387,9 +387,17 @@
                         {
                             name: 'Ситилинк',
                             url: `https://www.citilink.ru/search/?text=${encodeURIComponent(searchQuery)}`
+                        },
+                        {
+                            name: 'БигГик',
+                            url: `https://biggeek.ru/?digiSearch=true&term=${encodeURIComponent(searchQuery)}`
+                        },
+                        {
+                            name: 'ТехноДеус',
+                            url: `https://technodeus.ru/search?q=${encodeURIComponent(searchQuery)}`
                         }
                     ];
-https://www.citilink.ru/search/?text=iPhone+16
+
                     stores.forEach(store => {
                         const a = document.createElement('a');
                         a.href = store.url;
